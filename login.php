@@ -32,7 +32,7 @@
 									<div class="text-center">
 										<img src="../boostrap/img/images/logo-kemenkes.png" alt="Charles Hall" class="img-fluid" width="200" height="200" />
 									</div>
-									<form>
+									<form action="login_p.php?role=LOGIN" method="POST">
 										<div class="mb-3">
 											<label class="form-label">Email</label>
 											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />

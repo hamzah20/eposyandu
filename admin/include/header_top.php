@@ -12,7 +12,7 @@
 		              		</a> 
 				            <!-- Profile image for header -->
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-				                <img src="../boostrap/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+				                <img src="../boostrap/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark"><?php echo $_SESSION['nama_user']?></span>
 				            </a>
 				            <!-- List menu ini toggle header menu -->
 							<div class="dropdown-menu dropdown-menu-end">
@@ -22,7 +22,7 @@
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
+								<a class="dropdown-item" href="controller/logout_p.php?role=LOGOUT">Log out</a>
 							</div>
 						</li>
 					</ul>

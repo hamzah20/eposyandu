@@ -15,12 +15,16 @@
 						<h2> <span class="badge bg-success mb-3">KADER POSYANDU</span></h2>
 						<div class="row">
 							<div class="col- mb-3">
-								<a class="btn btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#addKader">
+								<!-- <a class="btn btn-primary" role="button" data-bs-toggle="modal" data-bs-target="#addKader">
 									Tambah Data Kader
-								</a>  
+								</a>  -->
+
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addKader">
+							  Tambah Kader
+							</button> 
 							</div>
 							<!-- Source of modal add kader -->
-							<?php include('modal/add_kader.php'); ?>
+							
 						</div> 
 						<table class="table" id="scheduleTable">
 							<thead>
@@ -64,7 +68,8 @@
 					</div> 
 				</div>
 				
-			</div> 			
+			</div> 	
+			<?php include('modal/add_kader.php'); ?>		
 			<?php include('include/footer.php'); ?>
 		</div>
 

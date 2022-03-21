@@ -1,5 +1,6 @@
-<div class="modal" id="addKader" tabindex="-1" aria-labelledby="addKader" aria-hidden="true">
-  <div class="modal-dialog">
+
+<div class="modal fade" id="addKader" tabindex="-1" aria-labelledby="addKader" aria-hidden="true">
+  <div class="in modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addKader">Modal title</h5>

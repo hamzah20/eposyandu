@@ -15,7 +15,9 @@
 						<h2> <span class="badge bg-success mb-3">JADWAL POSYANDU</span></h2>
 						<div class="row">
 							<div class="col- mb-3">
-								<a class="btn btn-primary" href="#" role="button">Input Jadwal</a>
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJadwal">
+							  Input Jadwal
+							</button> 
 							</div>
 						</div> 
 						<table class="table" id="scheduleTable">
@@ -29,42 +31,38 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>01/01/2021</td>
-									<td>Puskesmas Pamulang</td>
-									<td class="d-none d-xl-table-cell"><span class="badge bg-success">Akan Dilaksanakan</span></td>
-									<td>  
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>01/01/2021</td>
-									<td>Puskesmas Pamulang</td>
-									<td class="d-none d-xl-table-cell"><span class="badge bg-success">Akan Dilaksanakan</span></td>
-									<td>  
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>01/01/2021</td>
-									<td>Puskesmas Pamulang</td>
-									<td class="d-none d-xl-table-cell"><span class="badge bg-success">Akan Dilaksanakan</span></td>
-									<td>  
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
-									</td>
-								</tr>
+								<?php
+									$i=1;
+									$sql="SELECT * FROM jadwal";
+									$r=mysqli_query($conn,$sql);
+									while($rs=mysqli_fetch_array($r)){
+										?>
+										<tr>
+											<td><?php echo $i?></td>
+											<td><?php echo $rs['tanggal_jadwal']." ".$rs['waktu_jadwal']?></td>
+											<td><?php echo $rs['tempat_jadwal']?></td>
+											<td class="d-none d-xl-table-cell"><span class="badge bg-success">Akan Dilaksanakan</span></td>
+											<td>  
+													<button class="btn btn-sm btn-warning"  onclick="edit_jadwal(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="edit-2"></i></button>
+
+													<button class="btn btn-sm btn-danger"  onclick="delete_jadwal(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="trash"></i></button>
+											</td>
+										</tr>
+										<?php
+										$i++;
+									}
+
+								?>
+								
+								
 							</tbody>
 						</table>
 					</div> 
 				</div>
 			</div> 
 									
+			<?php include('modal/add_jadwal.php'); ?>		
+			<?php include('modal/edit_jadwal.php'); ?>		
 			<?php include('include/footer.php'); ?>
 		</div>
 	</div>

@@ -32,7 +32,7 @@
 									<div class="text-center">
 										<img src="../boostrap/img/images/logo-kemenkes.png" alt="Charles Hall" class="img-fluid" width="200" height="200" />
 									</div>
-									<form>
+									<form action="controller/login_p.php?role=LOGIN_ADMIN" method="POST">
 										<div class="mb-3">
 											<label class="form-label">Username</label>
 											<input class="form-control form-control-lg" type="username" name="username" placeholder="Enter your username" />
@@ -42,15 +42,15 @@
 											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" /> 
 										</div>  
 										<div class="mb-3"> 
-											<label class="form-label">Group</label>
-										  	<select class="form-select" id="inputGroupSelect01"> 
+											<label class="form-label">Groupas</label>
+										  	<select class="form-select" id="inputGroupSelect01" name="slc_group"> 
 										    	<option value="Kader Posyandu">Kader Posyandu</option>
 										    	<option value="Bidan Posyandu">Bidan Posyandu</option> 
 										  	</select>
 										</div>
 										<div class="text-center mt-3">
-											<a href="dashboard.php" class="btn btn-lg btn-primary">Sign in</a>
-											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
+											<!-- <a href="dashboard.php" class="btn btn-lg btn-primary">Sign in</a> -->
+											<button type="submit" class="btn btn-lg btn-primary">Sign in</button>
 										</div>
 									</form>
 								</div>
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 	</main>
-
+	<?php include('modal/add_kader.php'); ?>	
 	<script src="../boostrap/js/app.js"></script>
 
 </body>

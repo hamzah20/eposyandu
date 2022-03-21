@@ -1,4 +1,7 @@
+ <script src="../boostrap/js/jquery-3.3.1.min.js" ></script>
+<script src="../boostrap/js/sweetalert.min.js"></script>
 <script src="../boostrap/js/app.js"></script>
+<!-- <script src="../boostrap/js/app.js"></script> -->
 
 	
 	<!-- Data Tables -->
@@ -13,7 +16,57 @@
 
 	    $('#scheduleTable').DataTable();
 
+
+
+
 	  });
+
+	  //------------------------------- jadwal 
+	  function delete_jadwal(id){
+       swal({
+        title: "Are you sure?",
+        text: "",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+              $.ajax({
+              type: 'post',
+              url: 'Controller/master_p.php?role=DELETE_JADWAL',
+              data: {idx:id},
+              success: function (data) {
+                  swal(
+                      'Deleted!',
+                      'Your Schedule has been deleted.',
+                      'success'
+                    ).then(function(){
+                      location.reload();
+                   });
+
+              }         
+              }); 
+          } else {
+            swal("Your Unit file is safe!");
+          }
+        });
+    }
+    function edit_jadwal(id){
+      $.ajax({
+          url: 'controller/master_p.php?role=EDIT_JADWAL',
+          type: 'post',
+          data: {id: id},
+          success: function(body_Edit){ 
+           
+            // Add response in Modal body
+            $('.modalEditJadwal').html(body_Edit);
+            // Display Modal
+            $('#addjadwal').modal('show');
+          }
+        });
+    }
+
 	</script>
 	<!-- End Data Tables -->
 	<script>

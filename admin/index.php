@@ -1,4 +1,13 @@
 <?php 
-	// Mengarahkan ke halaman awal website
-	header("location:login.php");
+	
+	session_start();
+	if(empty($_SESSION['user_id'])){
+  		header('location:login.php');
+	}
+	else{
+		
+		header('location:dashboard.php');
+		
+	}
+
 ?>

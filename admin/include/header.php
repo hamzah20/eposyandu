@@ -1,3 +1,6 @@
+<?php 
+	include('../conn.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +18,8 @@
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
 	<title>EPosyandu</title>
+
+	<link href="../boostrap/css/bootstrap.min.css" rel="stylesheet">
 
 	<link href="../boostrap/css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
