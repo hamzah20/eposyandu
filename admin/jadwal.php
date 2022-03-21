@@ -24,6 +24,7 @@
 							<thead>
 								<tr>
 									<th>No</th>
+									<th>Kode</th>
 									<th>Tanggal</th>
 									<th>Tempat</th>
 									<th class="d-none d-xl-table-cell">Status</th>
@@ -39,6 +40,8 @@
 										?>
 										<tr>
 											<td><?php echo $i?></td>
+											<td><?php echo $rs['kode_jadwal']?></td>
+
 											<td><?php echo $rs['tanggal_jadwal']." ".$rs['waktu_jadwal']?></td>
 											<td><?php echo $rs['tempat_jadwal']?></td>
 											<td class="d-none d-xl-table-cell"><span class="badge bg-success">Akan Dilaksanakan</span></td>
