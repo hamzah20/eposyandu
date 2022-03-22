@@ -15,7 +15,7 @@
 						<h2> <span class="badge bg-success mb-3">JADWAL POSYANDU</span></h2>
 						<div class="row">
 							<div class="col- mb-3">
-								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJadwal">
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJadwal"><i class="align-middle me-2" data-feather="plus"></i>
 							  Input Jadwal
 							</button> 
 							</div>
