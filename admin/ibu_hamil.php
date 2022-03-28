@@ -15,7 +15,7 @@
 						<h2> <span class="badge bg-success mb-3">PASIEN POSYANDU</span></h2>
 						<div class="row">
 							<div class="col- mb-3">
-								<a class="btn btn-primary" href="#" role="button">Tambah Data Ibu Hamil</a>
+								<a href="add_ibu_hamil.php"><button type="button" class="btn btn-primary"><i class="align-middle me-2" data-feather="plus"></i> Input Pasien </button> </a>
 							</div>
 						</div> 
 						<table class="table" id="scheduleTable">
@@ -28,66 +28,38 @@
 								</tr>
 							</thead>
 							<tbody>
+							<!-- Menampilkan semua data kader -->
+							<?php  
+								$no 			= 1;
+								$DataPasien 		= "SELECT * FROM ibu_hamil";
+								$queryDataPasien	= mysqli_query($conn,$DataPasien);
+								while($RSDataPasien = mysqli_fetch_array($queryDataPasien)){
+							?>
 								<tr>
-									<td>1</td>
+									<td><?php echo $no; ?></td>
 									<td>
-										<strong class="strong">Nama :</strong> Nida Fitrillah <br>
-										<strong>Tempat Lahir :</strong> Cirebon <br>
-										<strong>Tanggal Lahir :</strong> 2022/01/01 <br>
-										<strong>Alamat :</strong> Mulyasari, Kota Tangerang Selatan <br>
-										<strong>No Telp :</strong> +62 8829336786
+										<strong>ID :</strong> <?php echo $RSDataPasien['id_ibu_hamil']; ?> <br>
+										<strong>Nama :</strong> <?php echo $RSDataPasien['nama_ibu_hamil']; ?> <br>
+										<strong>Tempat Lahir :</strong> <?php echo $RSDataPasien['tempat_lahir_ibu_hamil']; ?> <br>
+										<strong>Tanggal Lahir :</strong> <?php echo $RSDataPasien['tanggal_lahir_ibu_hamil']; ?> <br>
+										<strong>Alamat :</strong> <?php echo $RSDataPasien['alamat_ibu_hamil']; ?> <br>
+										<strong>No Telp :</strong> <?php echo $RSDataPasien['no_telp_ibu_hamil']; ?>
 									</td>
 									<td>
-										<strong>Gol Darah :</strong> AB <br>
-										<strong>Pekerjaan :</strong> Ibu Rumah Tangga <br>
-										<strong>Kehamilan :</strong> Pertama <br>
-										<strong>Suami :</strong> Andi Wardana 
+										<strong>Gol Darah :</strong> <?php echo $RSDataPasien['gol_darah_ibu_hamil']; ?> <br>
+										<strong>Pekerjaan :</strong> <?php echo $RSDataPasien['pekerjaan_ibu_hamil']; ?> <br>
+										<strong>Kehamilan :</strong> <?php echo $RSDataPasien['kehamilan']; ?> <br>
+										<strong>Suami :</strong> <?php echo $RSDataPasien['nama_suami']; ?> 
 									</td>
 									<td>  
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
+											<a class="btn btn-sm btn-warning" title="Edit" href="edit_ibu_hamil.php?id=<?= $RSDataPasien['id_ibu_hamil']; ?>"><i class="align-middle" data-feather="edit"></i></a> 
+											<a class="btn btn-sm btn-danger"  onclick="delete_pasien('<?php echo $RSDataPasien['id_ibu_hamil']?>')"><i class="align-middle text-center" data-feather="trash-2"></i></a>
 									</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>
-										<strong>Nama :</strong> Nida Fitrillah <br>
-										<strong>Tempat Lahir :</strong> Cirebon <br>
-										<strong>Tanggal Lahir :</strong> 2022/01/01 <br>
-										<strong>Alamat :</strong> Mulyasari, Kota Tangerang Selatan <br>
-										<strong>No Telp :</strong> +62 8829336786
-									</td>
-									<td>
-										<strong>Gol Darah :</strong> AB <br>
-										<strong>Pekerjaan :</strong> Ibu Rumah Tangga <br>
-										<strong>Kehamilan :</strong> Pertama <br>
-										<strong>Suami :</strong> Andi Wardana 
-									</td>
-									<td>  
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>
-										<strong>Nama :</strong> Nida Fitrillah <br>
-										<strong>Tempat Lahir :</strong> Cirebon <br>
-										<strong>Tanggal Lahir :</strong> 2022/01/01 <br>
-										<strong>Alamat :</strong> Mulyasari, Kota Tangerang Selatan <br>
-										<strong>No Telp :</strong> +62 8829336786
-									</td>
-									<td>
-										<strong>Gol Darah :</strong> AB <br>
-										<strong>Pekerjaan :</strong> Ibu Rumah Tangga <br>
-										<strong>Kehamilan :</strong> Pertama <br>
-										<strong>Suami :</strong> Andi Wardana 
-									</td>
-									<td>  
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
-									</td>
-								</tr>
+								</tr> 
+							<?php  
+								$no++;
+								}
+							?> 
 							</tbody>
 						</table>
 					</div> 

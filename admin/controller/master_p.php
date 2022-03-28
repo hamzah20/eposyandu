@@ -43,9 +43,9 @@
 
         break;
         case"DELETE_JADWAL":
-           $id=$_POST['idx'];
+            $id=$_POST['idx'];
            $sql="DELETE FROM jadwal where rec_id='".$id."'";
-           $r=mysqli_query($conn,$sql);
+          $r=mysqli_query($conn,$sql);
         break;
         case"EDIT_JADWAL":
             $id=$_POST['id'];
@@ -53,7 +53,7 @@
             $r= mysqli_query($conn,$sql);
             $rs = mysqli_fetch_array($r);
             ?>
-                 <div class="mb-3">
+                <div class="mb-3">
                   <label class="form-label">Kode Jadwal</label>
                   <input type="text" name="txt_kode" class="form-control" placeholder="kode" value="<?php echo $rs['kode_jadwal'];?>" readonly>
                   <input type="hidden" name="txt_rec_id" class="form-control" placeholder="kode" value="<?php echo $id;?>" readonly>
