@@ -15,8 +15,8 @@
 						<h2> <span class="badge bg-success mb-3">BIDAN POSYANDU</span></h2>
 						<div class="row">
 							<div class="col- mb-3">
-								<a class="btn btn-primary" href="#" role="button">Tambah Data Bidan</a>
-							</div>
+								<a href="add_bidan.php"><button type="button" class="btn btn-primary"><i class="align-middle me-2" data-feather="plus"></i> Input Bidan </button> </a>
+							</div>  
 						</div> 
 						<table class="table" id="scheduleTable">
 							<thead>
@@ -29,69 +29,45 @@
 								</tr>
 							</thead>
 							<tbody>
+							<!-- Menampilkan semua data kader -->
+							<?php  
+								$no 			= 1;
+								$DataBidan 		= "SELECT * FROM bidan";
+								$queryDataBidan	= mysqli_query($conn,$DataBidan);
+								while($RSDataBidan = mysqli_fetch_array($queryDataBidan)){
+							?>
 								<tr>
-									<td>1</td>
+									<td><?php echo $no; ?></td>
 									<td>
-										<strong>Nama :</strong> Adelya Faramita <br>
-										<strong>NIP :</strong> 9999999999 <br>
-										<strong>Agama :</strong> Islam <br> 
-										<strong>No Telp :</strong> +62 8829336786
+										<strong>ID :</strong> <?php echo $RSDataBidan['id_bidan']; ?> <br>
+										<strong>Nama :</strong> <?php echo $RSDataBidan['nama_bidan']; ?> <br>
+										<strong>NIP :</strong> <?php echo $RSDataBidan['nip_bidan']; ?> <br>
+										<strong>Agama :</strong> <?php echo $RSDataBidan['agama_bidan']; ?> <br> 
+										<strong>No Telp :</strong> <?php echo $RSDataBidan['no_telp_bidan']; ?>
 									</td>
 									<td>
-										Bogor, 29 September 1997
+										<?php 
+											echo $RSDataBidan['tempat_lahir_bidan'].", "; 
+											echo $RSDataBidan['tanggal_lahir_bidan']; 
+										?>
 									</td>
-									<td>
-										S1 Kedokteran
+									<td class="text-uppercase">
+										<?php echo $RSDataBidan['pendidikan_bidan']; ?>
 									</td>
 									<td>  
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
+											<a class="btn btn-sm btn-warning" title="Edit" href="edit_bidan.php?id=<?= $RSDataBidan['id_bidan']; ?>"><i class="align-middle" data-feather="edit"></i></a> 
+											<a class="btn btn-sm btn-danger"  onclick="delete_bidan('<?php echo $RSDataBidan['id_bidan']?>')"><i class="align-middle" data-feather="trash-2"></i></a>
 									</td>
 								</tr>
-								<tr>
-									<td>1</td>
-									<td>
-										<strong>Nama :</strong> Adelya Faramita <br>
-										<strong>NIP :</strong> 9999999999 <br>
-										<strong>Agama :</strong> Islam <br> 
-										<strong>No Telp :</strong> +62 8829336786
-									</td>
-									<td>
-										Bogor, 29 September 1997
-									</td>
-									<td>
-										S1 Kedokteran
-									</td>
-									<td>  
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>
-										<strong>Nama :</strong> Adelya Faramita <br>
-										<strong>NIP :</strong> 9999999999 <br>
-										<strong>Agama :</strong> Islam <br> 
-										<strong>No Telp :</strong> +62 8829336786
-									</td>
-									<td>
-										Bogor, 29 September 1997
-									</td>
-									<td>
-										S1 Kedokteran
-									</td>
-									<td>  
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
-									</td>
-								</tr>
+							<?php  
+								$no++;
+								}
+							?> 
 							</tbody>
 						</table>
 					</div> 
 				</div>
-			</div> 
-									
+			</div>  			
 			<?php include('include/footer.php'); ?>
 		</div>
 	</div>
