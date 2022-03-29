@@ -168,15 +168,119 @@
 	                    ).then(function(){
 	                      location.reload();
 	                   });
+              }         
+              }); 
+          } else {
+            swal("Your schedule file is safe!");
+          }
+        });
+    }
+    function edit_jadwal(id){
+      $.ajax({
+          url: 'controller/master_p.php?role=EDIT_JADWAL',
+          type: 'post',
+          data: {id: id},
+          success: function(body_Edit){ 
+           
+            // Add response in Modal body
+            $('.modalEditJadwal').html(body_Edit);
+            // Display Modal
+            $('#addjadwal').modal('show');
+          }
+        });
+    }
 
-	              }         
-	              }); 
-	          } else {
-	            swal("Your Unit file is safe!");
-	          }
-	        });
-	    } 
-	    //------------------------------- END OF PASIEN POSYANDU 
+    //--------------------------------- informasi
+     function delete_informasi(id){
+       swal({
+        title: "Are you sure?",
+        text: "",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+              $.ajax({
+              type: 'post',
+              url: 'Controller/master_p.php?role=DELETE_INFORMASI',
+              data: {idx:id},
+              success: function (data) {
+                  swal(
+                      'Deleted!',
+                      'Your Information has been deleted.',
+                      'success'
+                    ).then(function(){
+                      location.reload();
+                   });
+
+              }         
+              }); 
+          } else {
+            swal("Your Information file is safe!");
+          }
+        });
+    }
+    function detail_informasi(id){
+      $.ajax({
+          url: 'controller/master_p.php?role=DETAIL_INFORMASI',
+          type: 'post',
+          data: {id: id},
+          success: function(body_Edit){ 
+           
+            // Add response in Modal body
+            $('.modalDetailInformasi').html(body_Edit);
+            // Display Modal
+            $('#detailInformasi').modal('show');
+          }
+        });
+    }
+
+    //--------------------------------------------------- makanan
+    function delete_makanan(id){
+       swal({
+        title: "Are you sure?",
+        text: "",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+              $.ajax({
+              type: 'post',
+              url: 'Controller/master_p.php?role=DELETE_MAKANAN',
+              data: {idx:id},
+              success: function (data) {
+                  swal(
+                      'Deleted!',
+                      'Your menu has been deleted.',
+                      'success'
+                    ).then(function(){
+                      location.reload();
+                   });
+
+              }         
+              }); 
+          } else {
+            swal("Your menu file is safe!");
+          }
+        });
+    }
+    function detail_makanan(id){
+      $.ajax({
+          url: 'controller/master_p.php?role=DETAIL_MAKANAN',
+          type: 'post',
+          data: {id: id},
+          success: function(body_Edit){ 
+           
+            // Add response in Modal body
+            $('.modalDetailMakanan').html(body_Edit);
+            // Display Modal
+            $('#detailMakanan').modal('show');
+          }
+        });
+    }
 
 	</script>
 	<!-- End Data Tables -->
