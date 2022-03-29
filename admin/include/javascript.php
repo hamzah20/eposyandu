@@ -14,37 +14,160 @@
 	      $('[data-toggle="tooltip"]').tooltip()
 	    })
 
-	    $('#scheduleTable').DataTable();
-
-
-
+	    $('#scheduleTable').DataTable(); 
 
 	  });
 
-	  //------------------------------- jadwal 
-	  function delete_jadwal(id){
-       swal({
-        title: "Are you sure?",
-        text: "",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-        })
-        .then((willDelete) => {
-          if (willDelete) {
-              $.ajax({
-              type: 'post',
-              url: 'Controller/master_p.php?role=DELETE_JADWAL',
-              data: {idx:id},
-              success: function (data) {
-                  swal(
-                      'Deleted!',
-                      'Your Schedule has been deleted.',
-                      'success'
-                    ).then(function(){
-                      location.reload();
-                   });
+		//------------------------------- JADWAL 
+		function delete_jadwal(id){
+	       swal({
+	        title: "Are you sure?",
+	        text: "",
+	        icon: "warning",
+	        buttons: true,
+	        dangerMode: true,
+	        })
+	        .then((willDelete) => {
+	          if (willDelete) {
+	              $.ajax({
+	              type: 'post',
+	              url: 'Controller/master_p.php?role=DELETE_JADWAL',
+	              data: {idx:id},
+	              success: function (data) {
+	                  swal(
+	                      'Deleted!',
+	                      'Your Schedule has been deleted.',
+	                      'success'
+	                    ).then(function(){
+	                      location.reload();
+	                   });
 
+	              }         
+	              }); 
+	          } else {
+	            swal("Your Unit file is safe!");
+	          }
+	        });
+	    }
+	    function edit_jadwal(id){
+	      $.ajax({
+	          url: 'controller/master_p.php?role=EDIT_JADWAL',
+	          type: 'post',
+	          data: {id: id},
+	          success: function(body_Edit){ 
+	           
+	            // Add response in Modal body
+	            $('.modalEditJadwal').html(body_Edit);
+	            // Display Modal
+	            $('#editjadwal').modal('show');
+	          }
+	        });
+	    }
+	    //------------------------------- END OF JADWAL 
+
+	    //------------------------------- KADER POSYANDU 
+		function delete_kader(id){
+	       swal({
+	        title: "Anda yakin ingin menghapus data ini?",
+	        text: "",
+	        icon: "warning",
+	        buttons: true,
+	        dangerMode: true,
+	        })
+	        .then((willDelete) => {
+	          if (willDelete) {
+	              $.ajax({
+	              type: 'post',
+	              url: 'Controller/profile_p.php?role=DELETE_KADER',
+	              data: {id_kader:id},
+	              success: function (data) {
+	                  swal(
+	                      'Deleted!',
+	                      'Data kader berhasil dihapus.',
+	                      'success'
+	                    ).then(function(){
+	                      location.reload();
+	                   });
+
+	              }         
+	              }); 
+	          } else {
+	            swal("Your Unit file is safe!");
+	          }
+	        });
+	    }
+	    function edit_kader(id){
+	      $.ajax({
+	          url: 'controller/profile_p.php?role=EDIT_KADER',
+	          type: 'post',
+	          data: {id_kader: id},
+	          success: function(body_Edit){ 
+	           
+	            // Add response in Modal body
+	            $('.modalEditKader').html(body_Edit);
+	            // Display Modal
+	            $('#editkader').modal('show');
+	          }
+	        });
+	    }
+	    //------------------------------- END OF KADER POSYANDU 
+
+	    //------------------------------- BIDAN POSYANDU 
+		function delete_bidan(id){
+	       swal({
+	        title: "Anda yakin ingin menghapus data ini?",
+	        text: "",
+	        icon: "warning",
+	        buttons: true,
+	        dangerMode: true,
+	        })
+	        .then((willDelete) => {
+	          if (willDelete) {
+	              $.ajax({
+	              type: 'post',
+	              url: 'Controller/profile_p.php?role=DELETE_BIDAN',
+	              data: {id_bidan:id},
+	              success: function (data) {
+	                  swal(
+	                      'Deleted!',
+	                      'Data bidan berhasil dihapus.',
+	                      'success'
+	                    ).then(function(){
+	                      location.reload();
+	                   });
+
+	              }         
+	              }); 
+	          } else {
+	            swal("Your Unit file is safe!");
+	          }
+	        });
+	    } 
+	    //------------------------------- END OF BIDAN POSYANDU 
+
+	    //------------------------------- PASIEN POSYANDU 
+		function delete_pasien(id){
+	       swal({
+	        title: "Anda yakin ingin menghapus data ini?",
+	        text: "",
+	        icon: "warning",
+	        buttons: true,
+	        dangerMode: true,
+	        })
+	        .then((willDelete) => {
+	          if (willDelete) {
+	              $.ajax({
+	              type: 'post',
+	              url: 'Controller/profile_p.php?role=DELETE_PASIEN',
+	              data: {id_pasien:id},
+	              success: function (data) {
+	                  swal(
+	                      'Deleted!',
+	                      'Data pasien berhasil dihapus.',
+	                      'success'
+	                    ).then(function(){
+	                      location.reload();
+	                   });
               }         
               }); 
           } else {
