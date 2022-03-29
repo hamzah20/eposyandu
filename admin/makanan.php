@@ -15,63 +15,51 @@
 						<h2> <span class="badge bg-success mb-3">MENU MAKANAN</span></h2>
 						<div class="row">
 							<div class="col- mb-3">
-								<a class="btn btn-primary" href="#" role="button">Input Menu Makanan</a>
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMakanan"><i class="align-middle me-2" data-feather="plus"></i>
+							  Input Makanan
+							</button> 
 							</div>
 						</div> 
 						<table class="table" id="scheduleTable">
 							<thead>
 								<tr>
 									<th>No</th>
+									<th>Kode</th>
 									<th>Judul</th>
-									<th>Tanggal</th>
-									<th class="d-none d-xl-table-cell">Deskripsi</th>
-									<th class="d-none d-xl-table-cell">Gambar</th>  
+									<th>Tanggal</th> 
 									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Sayuran Berdaun Hijau</td>
-									<td>01/01/2021</td>
-									<td class="d-none d-xl-table-cell">Bayam, brokoli, kale, asparagus, dan ...</td>
-									<td class="d-none d-xl-table-cell">Gambar</td>
-									<td> 
-										<a class="btn btn-sm btn-primary" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Sayuran Berdaun Hijau</td>
-									<td>01/01/2021</td>
-									<td class="d-none d-xl-table-cell">Bayam, brokoli, kale, asparagus, dan ...</td>
-									<td class="d-none d-xl-table-cell">Gambar</td>
-									<td> 
-										<a class="btn btn-sm btn-primary" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
-									</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Sayuran Berdaun Hijau</td>
-									<td>01/01/2021</td>
-									<td class="d-none d-xl-table-cell">Bayam, brokoli, kale, asparagus, dan ...</td>
-									<td class="d-none d-xl-table-cell">Gambar</td>
-									<td> 
-										<a class="btn btn-sm btn-primary" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a>
-											<a class="btn btn-sm btn-danger"  title="Hapus" href="#"><i class="align-middle" data-feather="book"></i></a>
-									</td>
-								</tr>
+								<?php
+									$i=1;
+									$sql="SELECT * FROM menu_makanan";
+									$r=mysqli_query($conn,$sql);
+									while($rs=mysqli_fetch_array($r)){
+										?>
+										<tr>
+											<td><?php echo $i?></td>
+											<td><?php echo $rs['kode_makanan']?></td>
+											<td><?php echo $rs['nama_makanan']?></td>
+											<td><?php echo $rs['tanggal_makanan']?></td>
+											<td> 
+												<button class="btn btn-sm btn-primary"  onclick="detail_makanan(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="eye"></i></button>
+												
+													<!-- <a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a> -->
+												<button class="btn btn-sm btn-danger"  onclick="delete_makanan(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="trash"></i></button>
+											</td>
+										</tr>
+										<?php
+										$i++;
+									}
+								?>
 							</tbody>
 						</table>
 					</div> 
 				</div>
-			</div> 									
-
+			</div> 		
+			<?php include('modal/detail_makanan.php'); ?>	
+			<?php include('modal/add_makanan.php'); ?>
 			<?php include('include/footer.php'); ?>
 		</div>
 	</div>
