@@ -22,7 +22,7 @@
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="controller/logout_p.php?role=LOGOUT">Log out</a>
+								<a class="dropdown-item" href="controller/login_p.php?role=LOGOUT">Log out</a>
 							</div>
 						</li>
 					</ul>

@@ -50,7 +50,7 @@
             			</a>
 					</li>  
 					<li class="sidebar-item bg-info">
-						<a class="sidebar-link bg-info" href="pages-sign-in.html">
+						<a class="sidebar-link bg-info" href="controller/login_p.php?role=LOGOUT">
               				<i class="align-middle" data-feather="log-out"></i> 
               				<span class="align-middle">Sign Out</span>
             			</a>
