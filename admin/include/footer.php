@@ -6,6 +6,7 @@
 
 				</div>
 			</main>
+			<?php include('modal/edit_kader.php'); ?>
 			<footer class="footer">
 				<div class="container-fluid">
 					<div class="row text-muted">

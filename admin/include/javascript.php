@@ -1,4 +1,4 @@
- <script src="../boostrap/js/jquery-3.3.1.min.js" ></script>
+<script src="../boostrap/js/jquery-3.3.1.min.js" ></script>
 <script src="../boostrap/js/sweetalert.min.js"></script>
 <script src="../boostrap/js/app.js"></script>
 <!-- <script src="../boostrap/js/app.js"></script> -->
