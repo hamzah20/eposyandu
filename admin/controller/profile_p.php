@@ -61,18 +61,26 @@
             $r_cekKaderLap  = mysqli_query($conn,$cekKaderLap);
             $rs_cekKaderLap = mysqli_fetch_array($r_cekKaderLap);
 
+            // Cek apakah user sedang login atau tidak
+            $cekLogUser    = "SELECT active  FROM user where id_user='".$id."'";
+            $r_cekLogUser  = mysqli_query($conn,$cekLogUser);
+            $rs_cekLogUser = mysqli_fetch_array($r_cekLogUser);
+
             // Jika ada atau == 0 maka akan ada alert
             // Data berhasil dihapus, selain itu
             // Gagal hapus data, data sudah pernah dipakai
 
             if($rs_cekKaderLap['TOTAL_USER'] == 0){
-                $delKader      = "DELETE FROM kader_posyandu where id_kader='".$id."'";
-                $queryDelKader = mysqli_query($conn,$delKader);
+                if($rs_cekLogUser == '0'){
+                    $delKader      = "DELETE FROM kader_posyandu where id_kader='".$id."'";
+                    $queryDelKader = mysqli_query($conn,$delKader);
 
-                $delUser      = "DELETE FROM user where id_user='".$id."'";
-                $queryDelUser = mysqli_query($conn,$delUser);
+                    $delUser      = "DELETE FROM user where id_user='".$id."'";
+                    $queryDelUser = mysqli_query($conn,$delUser);
+                } else{
+                     // Kirim alert, gagal menghapus data 
+                }
 
-                // Kirim alert, berhasil menghapus data 
             } else{
                 // Kirim alert, gagal menghapus data
             }
@@ -184,18 +192,25 @@
             $r_cekBidanLap  = mysqli_query($conn,$cekBidanLap);
             $rs_cekBidanLap = mysqli_fetch_array($r_cekBidanLap);
 
+            // Cek apakah user sedang login atau tidak
+            $cekLogUser    = "SELECT active  FROM user where id_user='".$id."'";
+            $r_cekLogUser  = mysqli_query($conn,$cekLogUser);
+            $rs_cekLogUser = mysqli_fetch_array($r_cekLogUser);
+
             // Jika ada atau == 0 maka akan ada alert
             // Data berhasil dihapus, selain itu
             // Gagal hapus data, data sudah pernah dipakai
 
             if($rs_cekBidanLap['TOTAL_USER'] == 0){
-                $delBidan      = "DELETE FROM bidan where id_bidan='".$id."'";
-                $queryDelBidan = mysqli_query($conn,$delBidan);
+                if($rs_cekLogUser == '0'){
+                    $delBidan      = "DELETE FROM bidan where id_bidan='".$id."'";
+                    $queryDelBidan = mysqli_query($conn,$delBidan);
 
-                $delUser      = "DELETE FROM user where id_user='".$id."'";
-                $queryDelUser = mysqli_query($conn,$delUser);
-
-                // Kirim alert, berhasil menghapus data 
+                    $delUser      = "DELETE FROM user where id_user='".$id."'";
+                    $queryDelUser = mysqli_query($conn,$delUser);
+                } else{
+                    // Kirim alert, berhasil menghapus data 
+                }
             } else{
                 // Kirim alert, gagal menghapus data
             }
@@ -291,18 +306,25 @@
             $r_cekPasienLap  = mysqli_query($conn,$cekPasienLap);
             $rs_cekPasienLap = mysqli_fetch_array($r_cekPasienLap);
 
+             // Cek apakah user sedang login atau tidak
+            $cekLogUser    = "SELECT active  FROM user where id_user='".$id."'";
+            $r_cekLogUser  = mysqli_query($conn,$cekLogUser);
+            $rs_cekLogUser = mysqli_fetch_array($r_cekLogUser);
+
             // Jika ada atau == 0 maka akan ada alert
             // Data berhasil dihapus, selain itu
             // Gagal hapus data, data sudah pernah dipakai
 
             if($rs_cekPasienLap['TOTAL_USER'] == 0){
-                $delPasien      = "DELETE FROM ibu_hamil where id_ibu_hamil='".$id."'";
-                $queryDelBidan = mysqli_query($conn,$delPasien);
+                if($rs_cekLogUser == '0'){
+                    $delPasien      = "DELETE FROM ibu_hamil where id_ibu_hamil='".$id."'";
+                    $queryDelBidan = mysqli_query($conn,$delPasien);
 
-                $delUser      = "DELETE FROM user where id_user='".$id."'";
-                $queryDelUser = mysqli_query($conn,$delUser);
-
-                // Kirim alert, berhasil menghapus data 
+                    $delUser      = "DELETE FROM user where id_user='".$id."'";
+                    $queryDelUser = mysqli_query($conn,$delUser);
+                } else{
+                    // Kirim alert, berhasil menghapus data 
+                }
             } else{
                 // Kirim alert, gagal menghapus data
             }

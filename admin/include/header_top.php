@@ -16,12 +16,23 @@
 				            </a>
 				            <!-- List menu ini toggle header menu -->
 							<div class="dropdown-menu dropdown-menu-end">
-								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
-								<div class="dropdown-divider"></div>
+								<?php 
+									if($_SESSION['user_group'] == 'Kader Posyandu'){
+								?>
+										<a class="dropdown-item"  onclick="edit_kader('<?php echo $_SESSION['user_id'];?>')"><i class="align-middle me-1" data-feather="user"></i> Edit Kader Posyandu</a>  
+								<?php
+									} elseif($_SESSION['user_group'] == 'Bidan Posyandu'){
+								?>
+										<a class="dropdown-item" href="edit_bidan.php?id=<?php echo $_SESSION['user_id']; ?>"><i class="align-middle me-1" data-feather="user"></i> Edit Bidan Posyandu</a> 
+								<?php
+									} elseif($_SESSION['user_group'] == 'Pasien'){
+								?>
+									<a class="dropdown-item" href="profile.php?id=<?php echo $_SESSION['user_id']; ?>"><i class="align-middle me-1" data-feather="user"></i> Edit Bidan Posyandu</a> 
+								<?php
+									}
+								?>
+								
+								<div class="dropdown-divider"></div> 
 								<a class="dropdown-item" href="controller/login_p.php?role=LOGOUT">Log out</a>
 							</div>
 						</li>
