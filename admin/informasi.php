@@ -48,6 +48,7 @@
 												<button class="btn btn-sm btn-primary"  onclick="detail_informasi(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="eye"></i></button>
 												
 												<!-- <a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="edit"></i></a> -->
+												<button class="btn btn-sm btn-warning"  onclick="edit_informasi(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="edit-2"></i></button>
 												<button class="btn btn-sm btn-danger"  onclick="delete_informasi(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="trash"></i></button>
 											</td>
 										</tr>
@@ -64,6 +65,7 @@
 			</div> 
 			<?php include('modal/detail_informasi.php'); ?>	
 			<?php include('modal/add_informasi.php'); ?>	
+			<?php include('modal/edit_informasi.php'); ?>	
 			<?php include('include/footer.php'); ?>
 
 		</div>

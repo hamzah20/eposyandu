@@ -9,7 +9,7 @@
              $password=md5($_POST['password']);
              $group=$_POST['slc_group'];
 
-            $sqlemail="SELECT COUNT(*) AS TOTAL_USER FROM user where (id_user='".$username."' or username='".$username."') and password='".$password."' and user.user_group='".$group."' ";
+            $sqlemail="SELECT COUNT(*) AS TOTAL_USER FROM user where (id_user='".$username."' or username='".$username."') and password='".$password."' and user.group='".$group."' ";
 
             $r_email=mysqli_query($conn,$sqlemail);
             $rs_email=mysqli_fetch_array($r_email);
@@ -24,7 +24,7 @@
                     $_SESSION['username']=$rs['username'];
                     $_SESSION['nama_user']=$rs['nama_kader'];
                     $_SESSION['no_telp']=$rs['no_telp_kader'];
-                    $_SESSION['group']=$rs['user_group'];
+                    $_SESSION['group']=$rs['group'];
                     $_SESSION['login']=1;
                 header('location:../index.php');
              }

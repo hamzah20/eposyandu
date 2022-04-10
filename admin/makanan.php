@@ -46,6 +46,8 @@
 												<button class="btn btn-sm btn-primary"  onclick="detail_makanan(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="eye"></i></button>
 												
 													<!-- <a class="btn btn-sm btn-warning" title="Edit" href="#"><i class="align-middle" data-feather="book"></i></a> -->
+													<button class="btn btn-sm btn-warning"  onclick="edit_makanan(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="edit-2"></i></button>
+
 												<button class="btn btn-sm btn-danger"  onclick="delete_makanan(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="trash"></i></button>
 											</td>
 										</tr>
@@ -60,6 +62,7 @@
 			</div> 		
 			<?php include('modal/detail_makanan.php'); ?>	
 			<?php include('modal/add_makanan.php'); ?>
+			<?php include('modal/edit_makanan.php'); ?>
 			<?php include('include/footer.php'); ?>
 		</div>
 	</div>

@@ -235,6 +235,20 @@
           }
         });
     }
+    function edit_informasi(id){
+      $.ajax({
+          url: 'controller/master_p.php?role=EDIT_INFORMASI',
+          type: 'post',
+          data: {id: id},
+          success: function(body_Edit){ 
+           
+            // Add response in Modal body
+            $('.modalEditInformasi').html(body_Edit);
+            // Display Modal
+            $('#editInformasi').modal('show');
+          }
+        });
+    }
 
     //--------------------------------------------------- makanan
     function delete_makanan(id){
@@ -281,6 +295,66 @@
           }
         });
     }
+    function edit_makanan(id){
+      $.ajax({
+          url: 'controller/master_p.php?role=EDIT_MAKANAN',
+          type: 'post',
+          data: {id: id},
+          success: function(body_Edit){ 
+           
+            // Add response in Modal body
+            $('.modalEditMakanan').html(body_Edit);
+            // Display Modal
+            $('#editmakanan').modal('show');
+          }
+        });
+    }
+    //----------------------------------- laporan
+    function view_laporan(id){
+      $.ajax({
+          url: 'controller/master_p.php?role=VIEW_LAPORAN',
+          type: 'post',
+          data: {id: id},
+          success: function(body_Edit){ 
+           
+            // Add response in Modal body
+            $('.modalViewLaporan').html(body_Edit);
+            // Display Modal
+            $('#viewLaporan').modal('show');
+          }
+        });
+    }
+    function delete_laporan(id){
+       swal({
+        title: "Are you sure?",
+        text: "",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+              $.ajax({
+              type: 'post',
+              url: 'Controller/master_p.php?role=DELETE_LAPORAN',
+              data: {idx:id},
+              success: function (data) {
+                  swal(
+                      'Deleted!',
+                      'Your menu has been deleted.',
+                      'success'
+                    ).then(function(){
+                      location.reload();
+                   });
+
+              }         
+              }); 
+          } else {
+            swal("Your menu file is safe!");
+          }
+        });
+    }
+
 
 	</script>
 	<!-- End Data Tables -->
