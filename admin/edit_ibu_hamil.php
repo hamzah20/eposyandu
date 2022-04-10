@@ -48,7 +48,7 @@
 						</div>  
 						<div class="row">
 							<div class="col-">
-								<a type="button" class="btn btn-secondary" href="ibu_hamil.php">Close</a> 
+								<a type="button" class="btn btn-secondary" href="javascript:window.history.go(-1);">Close</a> 
         						<input type="submit" class="btn btn-primary" value="Save Changes">
 							</div> 
 						</div>
