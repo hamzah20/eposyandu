@@ -1,120 +1,121 @@
 <?php include('include/header.php'); ?>
-
 <body>
-	<div class="wrapper">
-		<!-- Sidebar in posyandu/include -->
-		<?php include('include/sidebar.php'); ?>
 
-		<div class="main">
-			<!-- Header top in posyandu/include -->
-			<?php include('include/header_top.php'); ?>
+  <!-- ======= Header ======= -->
+  <?php include('include/header_top.php'); ?>
+  <!-- End Header -->
 
-			<main class="content">
-				<div class="container-fluid p-0">
+  <main id="main">
 
-					<h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
+    <!-- ======= Blog Header ======= -->
+    <div class="header-bg page-area">
+      <div class="container position-relative">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="slider-content text-center">
+              <div class="header-bottom">
+                <div class="layer2">
+                  <h1 class="title2">EPosyandu</h1>
+                </div>
+                <div class="layer3">
+                  <h2 class="title3">Beranda</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Blog Header -->
 
-					<div class="row">
-						<div class="col-xl-12 col-xxl-12 d-flex">
-							<div class="w-100">
-								<div class="row"> 
-									<div class="col-sm-6">
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Earnings</h5>
-													</div>
+    <!-- ======= Blog Page ======= -->
+    <div class="blog-page area-padding">
+      <div class="container">
+        <div class="row">
+          <!-- ======= Header ======= -->
+          <?php include('include/sidebar.php'); ?>
+          <!-- End Header -->
+          <!-- End left sidebar -->
+          <!-- Start single blog -->
+          <div class="col-md-8 col-sm-8 col-xs-12">
+            <div class="row">
+              <?php   
+	              $sql_ig   = "SELECT * FROM informasi_gizi ORDER BY tanggal_informasi DESC";
+	              $r_ig    	= mysqli_query($conn,$sql_ig);
+	              while($rs_ig = mysqli_fetch_array($r_ig)){
+	          ?>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="single-blog">
+                  <div class="single-blog-img">
+                    <a href="detai_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>">
+                      <img src="../<?php echo $rs_ig['gambar_infomasi']; ?>" alt="">
+                    </a>
+                  </div>
+                  <div class="blog-meta"> 
+                    <span class="date-type">
+                      <i class="bi bi-calendar"></i><?php echo $rs_ig['tanggal_informasi']; ?>
+                    </span>
+                  </div>
+                  <div class="blog-text">
+                    <h4>
+                      <a href="detai_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>"><?php echo $rs_ig['judul_informasi']; ?></a>
+                    </h4> 
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    	<?php echo $rs_ig['deskripsi_informasi']; ?>
+                    </p>
+                  </div>
+                  <span>
+                    <a href="detai_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>" class="ready-btn">Read more</a>
+                  </span>
+                </div>
+              </div>
+              <?php 
+              	}
+              ?>
+              <!-- End single blog -->  
+                <?php   
+	              $sql_mm   = "SELECT * FROM menu_makanan ORDER BY tanggal_makanan DESC";
+	              $r_mm    	= mysqli_query($conn,$sql_mm);
+	              while($rs_mm = mysqli_fetch_array($r_mm)){
+	          ?>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="single-blog">
+                  <div class="single-blog-img">
+                    <a href="detai_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>">
+                      <img src="../<?php echo $rs_mm['gambar_makanan']; ?>" alt="">
+                    </a>
+                  </div>
+                  <div class="blog-meta"> 
+                    <span class="date-type">
+                      <i class="bi bi-calendar"></i><?php echo $rs_mm['tanggal_makanan']; ?>
+                    </span>
+                  </div>
+                  <div class="blog-text">
+                    <h4>
+                      <a href="detai_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>"><?php echo $rs_mm['nama_makanan']; ?></a>
+                    </h4> 
+                     <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    	<?php echo $rs_mm['isi_makanan']; ?>
+                    </p>
+                  </div>
+                  <span>
+                    <a href="detai_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>" class="ready-btn">Read more</a>
+                  </span>
+                </div>
+              </div>
+              <?php 
+              	}
+              ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Blog Page -->
 
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="dollar-sign"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">$21.300</h1>
-												<div class="mb-0">
-													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
-													<span class="text-muted">Since last week</span>
-												</div>
-											</div>
-										</div>
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Orders</h5>
-													</div>
+  </main><!-- End #main -->
 
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="shopping-cart"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">64</h1>
-												<div class="mb-0">
-													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
-													<span class="text-muted">Since last week</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Earnings</h5>
-													</div>
+  <?php include('include/footer.php'); ?>
 
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="dollar-sign"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">$21.300</h1>
-												<div class="mb-0">
-													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
-													<span class="text-muted">Since last week</span>
-												</div>
-											</div>
-										</div>
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Orders</h5>
-													</div>
-
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="shopping-cart"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">64</h1>
-												<div class="mb-0">
-													<span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
-													<span class="text-muted">Since last week</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> 
-					</div> 
-
-				</div>
-			</main>
-
-			<?php include('include/footer.php'); ?>
-		</div>
-	</div>
-	<!-- Source of javascript for this role -->
-	<?php include('include/javascript.php'); ?>
+  
 
 </body>
 

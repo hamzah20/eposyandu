@@ -22,7 +22,7 @@
 	<link href="../boostrap/css/bootstrap.min.css" rel="stylesheet">
 
 	<link href="../boostrap/css/app.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet"> 
 
 	<!-- Data tables -->
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">

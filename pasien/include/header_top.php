@@ -1,30 +1,27 @@
-			<nav class="navbar navbar-expand navbar-light navbar-bg">
-				<a class="sidebar-toggle js-sidebar-toggle">
-          			<i class="hamburger align-self-center"></i>
-        		</a>
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
 
-				<div class="navbar-collapse collapse">
-					<ul class="navbar-nav navbar-align">
-						<!-- Button for mobile menu --> 
-						<li class="nav-item dropdown">
-							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
-		                		<i class="align-middle" data-feather="settings"></i>
-		              		</a> 
-				            <!-- Profile image for header -->
-							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-				                <img src="../boostrap/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
-				            </a>
-				            <!-- List menu ini toggle header menu -->
-							<div class="dropdown-menu dropdown-menu-end">
-								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</nav>
+      <div class="logo">
+        <h1><a href="index.html"><span>e</span>Posyandu</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="dashboard.php">Home</a></li>
+          <li><a class="nav-link scrollto" href="jadwal.php">Jadwal</a></li>  
+          <li class="dropdown"><a href="#"><span>Article</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="menu_makanan.php">Menu Makanan</a></li> 
+              <li><a href="informasi_gizi.php">Informasi Gizi</a></li> 
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="profile.php">Profile</a></li>
+          <li><a class="nav-link scrollto" href="controller/login_p.php?role=LOGOUT">Logout</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+</header>
