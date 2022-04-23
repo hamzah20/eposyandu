@@ -344,7 +344,11 @@
             $r= mysqli_query($conn,$sql);
             $rs = mysqli_fetch_array($r);
             ?>
-            <input type="text" name="txt_kode" class="form-control" placeholder="Judul" readonly="" value="<?php echo $rs['kode_makanan']?>">
+           
+                <div class="mb-3">
+                  <label class="form-label">Kode Makanan</label>
+                  <input type="text" name="txt_kode" class="form-control" placeholder="Judul" readonly="" value="<?php echo $rs['kode_makanan']?>">
+                </div>
                 <div class="mb-3">
                   <label class="form-label">Nama Makanan</label>
                   <input type="text" name="txt_judul" class="form-control" placeholder="Judul"  value="<?php echo $rs['nama_makanan']?>">
@@ -455,11 +459,18 @@
             $r_kali=mysqli_query($conn,$sql_kali);
             $rs_kali=mysqli_fetch_array($r_kali);
 
+            $sql_ibu="SELECT tanggal_lahir_ibu_hamil from ibu_hamil where id_ibu_hamil='".$ibu_hamil."'";
+            $r_ibu=mysqli_query($conn,$sql_ibu);
+            $rs_ibu=mysqli_fetch_array($r_ibu);
+             $rs_ibu['tanggal_lahir_ibu_hamil'];
+           $usia_ibu_hamil= hitung_umur($rs_ibu['tanggal_lahir_ibu_hamil']);
+
+
             if($r_rumus==1){
-                $bee=655+(9.6*$bb)+(1.8*$tb)-(4.7*$usia);
+                $bee=655+(9.6*$bb)+(1.8*$tb)-(4.7*$usia_ibu_hamil);
                 $tee=$bee*$rs_kali['perkalian']+100;
             }else{
-                $bee=655+(9.6*$bb)+(1.8*$tb)-(4.7*$usia);
+                $bee=655+(9.6*$bb)+(1.8*$tb)-(4.7*$usia_ibu_hamil);
                 $tee=$bee*$rs_kali['perkalian']+300;
             }
 
@@ -483,11 +494,7 @@
             }
               $doc_no="L".$year.$run_no;
 
-            $sql_ibu="SELECT tanggal_lahir_ibu_hamil from ibu_hamil where id_ibu_hamil='".$ibu_hamil."'";
-            $r_ibu=mysqli_query($conn,$sql_ibu);
-            $rs_ibu=mysqli_fetch_array($r_ibu);
-             $rs_ibu['tanggal_lahir_ibu_hamil'];
-           $usia_ibu_hamil= hitung_umur($rs_ibu['tanggal_lahir_ibu_hamil']);
+           
             //echo $usia_ibu_hamil;
              $sql="INSERT INTO laporan ( id_laporan, id_kader_posyandu, id_bidan, id_ibu_hamil, tanggal_laporan, berat_badan, tinggi_badan, usia_ibu_hamil, bee, usia_kehamilan, tee, keluhan, catatan, kehamilan) VALUES ('".$doc_no."','".$_SESSION['user_id']."','".$bidan."','".$ibu_hamil."','".$tanggal."','".$bb."','".$tb."','".$usia_ibu_hamil."','".$bee."','".$usia."','".$tee."','".$keluhan."','".$catatan."','1')";
              $r=mysqli_query($conn,$sql);
@@ -511,7 +518,7 @@
                                     <th style="text-align: center;">Usia <br>kehamilan</th> 
                                     <th style="text-align: center;">BEE</th> 
                                     <th style="text-align: center;">TEE</th> 
-                                    <th style="text-align: center;">Aksi</th> 
+                                    <!-- <th style="text-align: center;">Aksi</th>  -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -521,7 +528,7 @@
                                     $r=mysqli_query($conn,$sql);
                                     while($rs=mysqli_fetch_array($r)){
                                         ?>
-                                        <tr>
+                                        <tr  style="cursor: pointer;" onclick="detail_keluhan('<?php echo $rs['rec_id']?>')">
                                             <td><?php echo $i;?></td>
                                             <td><?php echo $rs['id_laporan'];?></td>
                                             <td><?php echo $rs['tanggal_laporan'];?></td>
@@ -532,10 +539,21 @@
                                             <td style="text-align: center;"><?php echo $rs['usia_kehamilan'];?></td>
                                             <td style="text-align: center;"><?php echo $rs['bee'];?></td>
                                             <td style="text-align: center;"><?php echo $rs['tee'];?></td>
-                                            <td style="text-align: center;">
-                                                <button class="btn btn-sm btn-danger" title="Hitung" href="#" onclick="delete_laporan('<?php echo $rs['rec_id']?>')">Delete</button> 
-                                            </td>
+                                            <!-- <td style="text-align: center;">
+                                                 <button class="btn btn-sm btn-danger" title="Hitung" href="#" onclick="delete_laporan('<?php echo $rs['rec_id']?>')">Delete</button>  
+                                                <button class="btn btn-sm btn-danger" title="Hitung" href="#" onclick="detail_keluhan('<?php echo $rs['rec_id']?>')"></button>
+                                            </td> -->
                                             
+                                        </tr>
+                                        <tr style="display: none;" id="detail_<?php echo $rs['rec_id']?>">
+                                            <td colspan="5">
+                                                <b>Keluhan: </b>
+                                                <p><?php echo $rs['keluhan']?></p>
+                                            </td>
+                                            <td colspan="5">
+                                                <b>Catatan: </b>
+                                                <p><?php echo $rs['catatan']?></p>
+                                            </td>
                                         </tr>
                                         <?php
                                         $i++;
@@ -551,7 +569,84 @@
             mysqli_query($conn,$sql);
              
         break;
+        case"ADD_KELUHAN":
+        $id= $_POST['id'];
+        $sql="SELECT * FROM v_laporan where id_laporan='".$id."'";
+        $r=mysqli_query($conn,$sql);
+        $rs=mysqli_fetch_array($r);
+        ?>
+        <input type="hidden" name="txt_id_laporan" value="<?php echo $rs['id_laporan']?>">
+            <div class="mb-3">
+          <label class="form-label">Ibu Hamil</label>
+          <input type="text" name="txt_tgl" class="form-control" placeholder="Tanggal" readonly="" value="<?php echo $rs['nama_ibu_hamil']?>">
+        </div>
         
+        <div class="row">
+          
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label class="form-label">BB</label>
+              <input type="number" name="txt_bb"  id="txt_bb" class="form-control" placeholder="Berat Badan" readonly="" value="<?php echo $rs['berat_badan']?>">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label class="form-label">TB</label>
+              <input type="number" name="txt_bb"  id="txt_bb" class="form-control" placeholder="Berat Badan" readonly="" value="<?php echo $rs['tinggi_badan']?>">
+            </div>
+          </div>
+           <div class="col-sm-3">
+            <div class="mb-3">
+              <label class="form-label">Bee</label>
+              <input type="number" name="txt_bb"  id="txt_bb" class="form-control" placeholder="Berat Badan" readonly="" value="<?php echo $rs['bee']?>">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label class="form-label">Tee</label>
+              <input type="number" name="txt_bb"  id="txt_bb" class="form-control" placeholder="Berat Badan" readonly="" value="<?php echo $rs['tee']?>">
+            </div>
+          </div>
+        </div>
+        
+        
+       <!--  <div class="mb-3">
+          <label class="form-label">Usia Kehamilan</label>
+          <input type="number" name="txt_usia" id="txt_usia" class="form-control" placeholder="Usia Kehamilan" value="0">
+        </div> -->
+        <!-- <div class="mb-3">
+          <label class="form-label">BMR</label>
+          <input type="number" name="txt_bmr" id="txt_bmr" class="form-control" placeholder="Bmr" readonly="">
+        </div> -->
+        
+        
+
+        <div class="mb-3">
+          <label class="form-label">Keluhan</label>
+          <input type="text" name="txt_keluhan" class="form-control" placeholder="Keluhan" >
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Catatan</label>
+          <textarea class="form-control" name="txt_catatan" ></textarea>
+        </div>
+        
+
+        <?php
+        break;
+        case"TAMBAH_KELUHAN":
+            $id=$_POST['txt_id_laporan'];
+            $keluhan=$_POST['txt_keluhan'];
+            $catatan=$_POST['txt_catatan'];
+
+            $sql="UPDATE laporan SET 
+                keluhan ='".$keluhan."', 
+                catatan ='".$catatan."'
+                where id_laporan='".$id."'
+                ";
+             $r=mysqli_query($conn,$sql);
+             header('location:../perhitungan.php');
+
+        break;
     }
 
 

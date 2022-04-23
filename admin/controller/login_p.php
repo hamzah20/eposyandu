@@ -8,7 +8,7 @@
             $password = md5($_POST['password']);
             $group    = $_POST['slc_group'];
 
-            $sqlemail="SELECT COUNT(*) AS TOTAL_USER FROM user where (id_user='".$username."' or username='".$username."') and password='".$password."' and user_group='".$group."' ";
+             $sqlemail="SELECT COUNT(*) AS TOTAL_USER FROM user where (id_user='".$username."' or username='".$username."') and password='".$password."' and user_group='".$group."' ";
 
             $r_email    = mysqli_query($conn,$sqlemail);
             $rs_email   = mysqli_fetch_array($r_email);
@@ -28,7 +28,7 @@
                 // Ubah status menjadi "1" (Sedang Login)
                 $sqlUpdStatus ="UPDATE `user` SET `active`='1' WHERE (id_user='".$username."' or username='".$username."')";
                 $r_updStatus    = mysqli_query($conn,$sqlUpdStatus);
-                $rs_updStatus   = mysqli_fetch_array($r_updStatus); 
+               // $rs_updStatus   = mysqli_fetch_array($r_updStatus); 
                 header('location:../index.php');
             }
             else{
@@ -38,9 +38,10 @@
 
         case'LOGOUT':
             // Ubah status menjadi "0" (Sedang Tidak Login)
-            $sqlUpdStatus ="UPDATE `user` SET `active`='0' WHERE (id_user='".$_SESSION['user_id']."' or username='".$_SESSION['username']."')";
+            $sqlUpdStatus ="UPDATE `user` SET `active`='0' 
+                WHERE (id_user='".$_SESSION['user_id']."' or username='".$_SESSION['username']."')";
             $r_updStatus    = mysqli_query($conn,$sqlUpdStatus);
-            $rs_updStatus   = mysqli_fetch_array($r_updStatus);
+            //$rs_updStatus   = mysqli_fetch_array($r_updStatus);
 
             $_SESSION['member_id']  = "";
             $_SESSION['user_id']    = "";
