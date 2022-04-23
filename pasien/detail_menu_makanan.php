@@ -18,7 +18,7 @@
                   <h1 class="title2">Artikel</h1>
                 </div>
                 <div class="layer3">
-                  <h2 class="title3">Informasi Gizi</h2>
+                  <h2 class="title3">Menu Makanan</h2>
                 </div>
               </div>
             </div>
@@ -37,41 +37,40 @@
           <!-- End left sidebar -->
           <!-- Start single blog -->
           <div class="col-md-8 col-sm-8 col-xs-12">
-            <div class="row">
-              <?php   
-	              $sql_ig   = "SELECT * FROM informasi_gizi ORDER BY tanggal_informasi DESC";
-	              $r_ig    	= mysqli_query($conn,$sql_ig);
-	              while($rs_ig = mysqli_fetch_array($r_ig)){
+            <div class="row"> 
+            <?php   
+	              $sql_mm   = "SELECT * FROM menu_makanan WHERE kode_makanan = '.$_GET['id'].'";
+	              $r_mm    	= mysqli_query($conn,$sql_mm);
+	              while($rs_mm = mysqli_fetch_array($r_mm)){
 	          ?>
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="single-blog">
                   <div class="single-blog-img">
-                    <a href="detail_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>">
-                      <img src="../<?php echo $rs_ig['gambar_infomasi']; ?>" alt="">
+                    <a href="detail_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>">
+                      <img src="../<?php echo $rs_mm['gambar_makanan']; ?>" alt="">
                     </a>
                   </div>
                   <div class="blog-meta"> 
                     <span class="date-type">
-                      <i class="bi bi-calendar"></i><?php echo $rs_ig['tanggal_informasi']; ?>
+                      <i class="bi bi-calendar"></i><?php echo $rs_mm['tanggal_makanan']; ?>
                     </span>
                   </div>
                   <div class="blog-text">
                     <h4>
-                      <a href="detail_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>"><?php echo $rs_ig['judul_informasi']; ?></a>
+                      <a href="detail_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>"><?php echo $rs_mm['nama_makanan']; ?></a>
                     </h4> 
-                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                    	<?php echo $rs_ig['deskripsi_informasi']; ?>
+                     <p>
+                    	<?php echo $rs_mm['isi_makanan']; ?>
                     </p>
                   </div>
                   <span>
-                    <a href="detail_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>" class="ready-btn">Read more</a>
+                    <a href="detail_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>" class="ready-btn">Read more</a>
                   </span>
                 </div>
               </div>
               <?php 
               	}
               ?>
-              <!-- End single blog -->   
             </div>
           </div>
         </div>

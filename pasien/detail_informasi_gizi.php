@@ -39,7 +39,7 @@
           <div class="col-md-8 col-sm-8 col-xs-12">
             <div class="row">
               <?php   
-	              $sql_ig   = "SELECT * FROM informasi_gizi ORDER BY tanggal_informasi DESC";
+	              $sql_ig   = "SELECT * FROM informasi_gizi WHERE kode_informasi = '.$_GET['id'].'";
 	              $r_ig    	= mysqli_query($conn,$sql_ig);
 	              while($rs_ig = mysqli_fetch_array($r_ig)){
 	          ?>
