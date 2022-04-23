@@ -16,7 +16,7 @@
               $r=mysqli_query($conn,$sql);
               while($rs=mysqli_fetch_array($r)){
                 ?>
-                  <option value="<?php echo $rs['id_ibu_hamil'];?>"><?php echo $rs['nama_ibu_hamil']?></option>
+                  <option value="<?php echo $rs['id_ibu_hamil'];?>"><?php echo $rs['id_ibu_hamil']?> / <?php echo $rs['nama_ibu_hamil']?></option>
                 <?php
               }
             ?>
@@ -30,7 +30,7 @@
               $r=mysqli_query($conn,$sql);
               while($rs=mysqli_fetch_array($r)){
                 ?>
-                  <option value="<?php echo $rs['id_bidan'];?>"><?php echo $rs['nama_bidan']?></option>
+                  <option value="<?php echo $rs['id_bidan'];?>"><?php echo $rs['id_bidan']?> / <?php echo $rs['nama_bidan']?></option>
                 <?php
               }
             ?>
@@ -40,22 +40,30 @@
           <label class="form-label">Tanggal</label>
           <input type="date" name="txt_tgl" class="form-control" placeholder="Tanggal" >
         </div>
-        <div class="mb-3">
-          <label class="form-label">Tinggi Badan</label>
-          <input type="number" name="txt_tb" id="txt_tb" class="form-control" placeholder="Tinggi Badan" value="0">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="mb-3">
+              <label class="form-label">Tinggi Badan</label>
+              <input type="number" name="txt_tb" id="txt_tb" class="form-control" placeholder="Tinggi Badan" value="0">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="mb-3">
+              <label class="form-label">Berat Badan</label>
+              <input type="number" name="txt_bb"  id="txt_bb" class="form-control" placeholder="Berat Badan" value="0">
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Berat Badan</label>
-          <input type="number" name="txt_bb"  id="txt_bb" class="form-control" placeholder="Berat Badan" value="0">
-        </div>
-        <div class="mb-3">
+        
+        
+       <!--  <div class="mb-3">
           <label class="form-label">Usia Kehamilan</label>
           <input type="number" name="txt_usia" id="txt_usia" class="form-control" placeholder="Usia Kehamilan" value="0">
-        </div>
-        <div class="mb-3">
+        </div> -->
+        <!-- <div class="mb-3">
           <label class="form-label">BMR</label>
           <input type="number" name="txt_bmr" id="txt_bmr" class="form-control" placeholder="Bmr" readonly="">
-        </div>
+        </div> -->
         <div class="mb-3">
           <label class="form-label">Aktivitas</label>
           <select class="form-select" name="slc_aktivitas">
@@ -71,25 +79,29 @@
           </select>
         </div>
         <div class="mb-3">
-          <label class="form-label">Rumus</label>
+          <label class="form-label">Rumus : </label>
           
             <?php 
               $sql="SELECT * FROM rumus";
               $r=mysqli_query($conn,$sql);
               while($rs=mysqli_fetch_array($r)){
                 ?>
-                <label class="form-check">
-            <input class="form-check-input" type="radio" value="<?php echo $rs['rec_id']?>" name="r_rumus" checked>
-            <span class="form-check-label">
-              <?php echo $rs['nama_rumus']?>
-            </span>
-          </label>
+               <!--  <label class="form-check">
+                  <input class="form-check-input" type="radio" value="<?php echo $rs['rec_id']?>" name="r_rumus" checked>
+                  <span class="form-check-label">
+                    <?php echo $rs['nama_rumus']?>
+                  </span>
+                </label> -->
+                 <input class=" form-check-input" type="radio" value="<?php echo $rs['rec_id']?>" name="r_rumus" checked>
+                  <span class="form-check-label">
+                    <?php echo $rs['nama_rumus']?>
+                  </span>
                 <?php
               }
             ?>
         </div>
 
-        <div class="mb-3">
+     <!--    <div class="mb-3">
           <label class="form-label">Keluhan</label>
           <input type="text" name="txt_keluhan" class="form-control" placeholder="Keluhan" >
         </div>
@@ -98,7 +110,7 @@
           <textarea class="form-control" name="txt_catatan"></textarea>
         </div>
         
-
+ -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 

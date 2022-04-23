@@ -1,4 +1,6 @@
 <script src="../boostrap/js/jquery-3.3.1.min.js" ></script>
+
+<script src="../boostrap/js/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="../boostrap/js/sweetalert.min.js"></script>
 <script src="../boostrap/js/app.js"></script>
 <!-- <script src="../boostrap/js/app.js"></script> -->
@@ -6,6 +8,7 @@
 	
 	<!-- Data Tables -->
 	<script>
+	  tinymce.init({selector:'textarea'});
 	  jQuery(document).ready(function($) {
 
 	    "use strict";
@@ -17,6 +20,39 @@
 	    $('#scheduleTable').DataTable(); 
 
 	  });
+
+	  function detail_keluhan(tr_id)
+		{
+			//var x = $("#detail_"+tr_id);
+		  if (document.getElementById("detail_"+tr_id).style.display === "none") {
+		    document.getElementById("detail_"+tr_id).style.cssText = `
+				  display: show; 
+				  
+				`;
+		  } else {
+		   document.getElementById("detail_"+tr_id).style.cssText = `
+				  display: none; 
+				`;
+		  }
+
+
+			 // var x = $('#'+tr_id).v;
+			 // alert(tr_id);
+			 //$('#detail_'+tr_id).show();
+			// $('#detail_'+tr_id).style.display = ($('#detail_'+tr_id).style.display == 'block') ? 'none' : 'block';
+
+			 // if($('#detail_'+tr_id).style.display=='none'){
+			 // 	 $('#detail_'+tr_id).show();
+			 // }
+			 // else{
+			 // 	 $('#detail_'+tr_id).hide();
+			 // }
+		    // if ($('#detail_'+tr_id).style.display === "none") {
+		    //     $('#detail_'+tr_id).style.display = "blok";
+		    // } else {
+		    //     $('#detail_'+tr_id).style.display = "none";
+		    // }
+		}
 
 		//------------------------------- JADWAL 
 		function delete_jadwal(id){
@@ -57,9 +93,11 @@
 	          success: function(body_Edit){ 
 	           
 	            // Add response in Modal body
+
 	            $('.modalEditJadwal').html(body_Edit);
 	            // Display Modal
 	            $('#editjadwal').modal('show');
+	             tinymce.init({selector:'textarea'});
 	          }
 	        });
 	    }
@@ -107,6 +145,7 @@
 	            $('.modalEditKader').html(body_Edit);
 	            // Display Modal
 	            $('#editkader').modal('show');
+	             tinymce.init({selector:'textarea'});
 	          }
 	        });
 	    }
@@ -186,6 +225,7 @@
             $('.modalEditJadwal').html(body_Edit);
             // Display Modal
             $('#addjadwal').modal('show');
+             tinymce.init({selector:'textarea'});
           }
         });
     }
@@ -246,6 +286,7 @@
             $('.modalEditInformasi').html(body_Edit);
             // Display Modal
             $('#editInformasi').modal('show');
+             tinymce.init({selector:'textarea'});
           }
         });
     }
@@ -306,6 +347,7 @@
             $('.modalEditMakanan').html(body_Edit);
             // Display Modal
             $('#editmakanan').modal('show');
+             tinymce.init({selector:'textarea'});
           }
         });
     }
@@ -354,7 +396,21 @@
           }
         });
     }
-
+    function add_keluhan(id){
+      $.ajax({
+          url: 'controller/master_p.php?role=ADD_KELUHAN',
+          type: 'post',
+          data: {id: id},
+          success: function(body_Edit){ 
+           
+            // Add response in Modal body
+            $('.modalKeluhan').html(body_Edit);
+            // Display Modal
+            $('#addKeluhan').modal('show');
+             tinymce.init({selector:'textarea'});
+          }
+        });
+    }
 
 	</script>
 	<!-- End Data Tables -->

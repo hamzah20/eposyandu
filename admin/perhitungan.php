@@ -26,14 +26,18 @@
 									<th>No</th>
 									<th>ID Pasien</th>
 									<th>Nama Pasien</th>
-									<th>Kehamilan</th> 
+									<th>Tanggal Laporan</th> 
+									<th>Bee</th> 
+									<th>Tee</th> 
+									<th>status</th> 
 									<th class="text-center">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php
 									$i=1;
-									$sql="SELECT id_ibu_hamil,nama_ibu_hamil,kehamilan FROM v_laporan group by id_ibu_hamil,nama_ibu_hamil,kehamilan";
+									$date=date('Y-m-d');
+									$sql="SELECT id_laporan,id_ibu_hamil,nama_ibu_hamil,kehamilan,tanggal_laporan,bee,tee,status_konsul FROM v_laporan  group by id_laporan,id_ibu_hamil,nama_ibu_hamil,kehamilan";
 									$r=mysqli_query($conn,$sql);
 									while($rs=mysqli_fetch_array($r)){
 										?>
@@ -41,9 +45,23 @@
 											<td><?php echo $i;?></td>
 											<td><?php echo $rs['id_ibu_hamil'];?></td>
 											<td><?php echo $rs['nama_ibu_hamil'];?></td>
-											<td><?php echo $rs['kehamilan'];?></td>
+											<td><?php echo $rs['tanggal_laporan'];?></td>
+											<td><?php echo $rs['bee'];?></td>
+											<td><?php echo $rs['tee'];?></td>
+											<td><?php echo $rs['status_konsul'];?></td>
 											<td class="text-center">  
-												<button class="btn btn-sm btn-success" title="Hitung" href="#" onclick="view_laporan('<?php echo $rs['id_ibu_hamil']?>')"><i data-feather="eye"></i></button> 
+												<?php
+												if($_SESSION['user_group'] == 'Bidan Posyandu'){
+													if($rs['status_konsul']=='belum konsul'){
+														?>
+														<button class="btn btn-sm btn-success" title="Konsul" href="#" onclick="add_keluhan('<?php echo $rs['id_laporan']?>')"><i data-feather="book-open"></i></button> 
+														<?php
+													}
+												}
+													
+												?>
+												
+												<button class="btn btn-sm btn-success" title="View" href="#" onclick="view_laporan('<?php echo $rs['id_ibu_hamil']?>')"><i data-feather="eye"></i></button> 
 											</td>
 										</tr>
 										<?php
@@ -56,6 +74,7 @@
 				</div>
 			</div> 
 									
+			<?php include('modal/add_keluhan.php'); ?>
 			<?php include('modal/add_perhitungan.php'); ?>
 			<?php include('modal/view_perhitungan.php'); ?>
 			<?php include('include/footer.php'); ?>
