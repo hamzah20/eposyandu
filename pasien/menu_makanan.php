@@ -46,7 +46,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="single-blog">
                   <div class="single-blog-img">
-                    <a href="detai_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>">
+                    <a href="detail_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>">
                       <img src="../<?php echo $rs_mm['gambar_makanan']; ?>" alt="">
                     </a>
                   </div>
@@ -57,14 +57,14 @@
                   </div>
                   <div class="blog-text">
                     <h4>
-                      <a href="detai_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>"><?php echo $rs_mm['nama_makanan']; ?></a>
+                      <a href="detail_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>"><?php echo $rs_mm['nama_makanan']; ?></a>
                     </h4> 
                      <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                     	<?php echo $rs_mm['isi_makanan']; ?>
                     </p>
                   </div>
                   <span>
-                    <a href="detai_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>" class="ready-btn">Read more</a>
+                    <a href="detail_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>" class="ready-btn">Read more</a>
                   </span>
                 </div>
               </div>
