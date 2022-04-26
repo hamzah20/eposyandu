@@ -39,20 +39,68 @@
           <div class="col-md-8 col-sm-8 col-xs-12">
             <div class="row">  
              <?php  
-              echo $id_laporan = $_GET['id'];
-              $sql  = "SELECT * FROM v_laporan WHERE id_laporan = 'P-22030001' ";
+              $id_laporan = $_GET['id'];
+              $sql  = "SELECT * FROM v_laporan WHERE id_laporan = '".$id_laporan."' ";
               $r    = mysqli_query($conn,$sql);
               while($rs = mysqli_fetch_array($r)){
              ?>
-             <div class="card" style="width: 45rem; margin-left: 10px; margin-bottom: 10px;"> 
-              <div class="card-body">
-                <h5 class="card-title">Laporan</h5>
+             <div style="width: 55rem; margin-left: 10px; margin-bottom: 10px;"> 
+              <div>
+                <h5>LAPORAN / <?php echo $rs['tanggal_laporan']; ?></h5> 
                 <p class="card-text">
-                  <table>
+                  <table> 
+                    <tr>
+                      <td colspan="3"><span class="badge bg-primary mt-3 mb-2">Data Pribadi</span></td>
+                    </tr>
                     <tr>
                       <td> Nama</td>
-                      <td> :</td>
-                      <td> <?php echo $rs[]; ?></td>
+                      <td class="px-3"> :</td>
+                      <td> <?php echo $rs['nama_ibu_hamil']; ?></td>
+                    </tr>
+                     <tr>
+                      <td> Usia</td>
+                      <td class="px-3"> :</td>
+                      <td> <?php echo $rs['usia_ibu_hamil']." Tahun"; ?></td>
+                    </tr>
+                    <tr>
+                      <td> Tinggi Badan</td>
+                      <td class="px-3"> :</td>
+                      <td> <?php echo $rs['tinggi_badan']." cm"; ?></td>
+                    </tr>
+                     <tr>
+                      <td> Berat Badan Badan</td>
+                      <td class="px-3"> :</td>
+                      <td> <?php echo $rs['berat_badan']." kg"; ?></td>
+                    </tr> 
+                  </table> <br>
+                  <table>
+                    <tr>
+                      <td colspan="3"><span class="badge bg-primary">Data Perhitungan</span></td>
+                    </tr>
+                    <tr>
+                      <td> Usia Kehamilan</td>
+                      <td class="px-3"> :</td>
+                      <td> <?php echo $rs['usia_kehamilan'] ." bulan"; ?></td>
+                    </tr>
+                     <tr>
+                      <td> BEE</td>
+                      <td class="px-3"> :</td>
+                      <td> <?php echo $rs['bee']; ?></td>
+                    </tr>
+                    <tr>
+                      <td> TEE</td>
+                      <td class="px-3"> :</td>
+                      <td> <?php echo $rs['tee']; ?></td>
+                    </tr>
+                    <tr>
+                      <td> Keluhan</td>
+                      <td class="px-3"> :</td>
+                      <td> <?php echo $rs['keluhan']; ?></td>
+                    </tr>
+                    <tr>
+                      <td> Catatan</td>
+                      <td class="px-3"> :</td>
+                      <td> <?php echo $rs['catatan']; ?></td>
                     </tr>
                   </table>
                 </p>  

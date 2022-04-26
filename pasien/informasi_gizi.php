@@ -59,12 +59,12 @@
                     <h4>
                       <a href="detai_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>"><?php echo $rs_ig['judul_informasi']; ?></a>
                     </h4> 
-                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    <p>
                     	<?php echo $rs_ig['deskripsi_informasi']; ?>
                     </p>
                   </div>
                   <span>
-                    <a href="detai_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>" class="ready-btn">Read more</a>
+                    <a href="detail_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>" class="ready-btn">Read more</a>
                   </span>
                 </div>
               </div>

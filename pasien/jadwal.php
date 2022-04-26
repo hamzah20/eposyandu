@@ -62,13 +62,12 @@
           </div>
         </div>
       </div>
-    </div><!-- End Blog Page -->
+    </div>
+    <!-- End Blog Page -->
 
   </main><!-- End #main -->
 
-  <?php include('include/footer.php'); ?>
-
-  
+  <?php include('include/footer.php'); ?> 
 
 </body>
 

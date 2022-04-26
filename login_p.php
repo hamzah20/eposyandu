@@ -6,8 +6,8 @@
              $email=$_POST['txt_email'];
              $password=sha1($_POST['txt_password']);
              $sqlemail="SELECT COUNT(*) AS TOTAL_MEMBER FROM g_member where EMAIL='".$email."' and PASSWORD='".$password."'";
-            $r_email=mysqli_query($conn,$sqlemail);
-            $rs_email=mysqli_fetch_array($r_email);
+             $r_email=mysqli_query($conn,$sqlemail);
+             $rs_email=mysqli_fetch_array($r_email);
              if($rs_email['TOTAL_MEMBER']>0){
                 $sql="SELECT * FROM g_member where EMAIL='".$email."' and PASSWORD='".$password."'";
                 $r=mysqli_query($conn,$sql);

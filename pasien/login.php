@@ -34,16 +34,15 @@
 									</div>
 									<form action="controller/login_p.php?role=LOGIN_PASIEN" method="POST">
 										<div class="mb-3">
-											<label class="form-label">Email</label>
-											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+											<label class="form-label">Username</label>
+											<input class="form-control form-control-lg" type="text" name="username" placeholder="Enter your username" />
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
 											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" /> 
 										</div>  
 										<div class="text-center mt-3">
-											<a href="dashboard.php" class="btn btn-lg btn-primary">Sign in</a>
-											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
+											<button type="submit" class="btn btn-lg btn-primary">Sign in</button>
 										</div>
 									</form>
 								</div>

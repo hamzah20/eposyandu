@@ -39,18 +39,19 @@
           <div class="col-md-8 col-sm-8 col-xs-12">
             <div class="row">  
              <?php  
-              echo $id_ibu_hamil = $_SESSION['user_id'];
-              $sql  = "SELECT * FROM v_laporan WHERE id_ibu_hamil = 'P-22030001' ";
+              $id_ibu_hamil = $_SESSION['user_id']; 
+              $sql  = "SELECT * FROM v_laporan WHERE id_ibu_hamil = '".$id_ibu_hamil."' ";
               $r    = mysqli_query($conn,$sql);
               while($rs = mysqli_fetch_array($r)){
              ?>
-             <div class="card" style="width: 45rem; margin-left: 10px; margin-bottom: 10px;"> 
+             <div class="card" style="width: 15rem; margin-left: 10px; margin-bottom: 10px;">
+              <img src="../boostrap/assets/img/background/card-report.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Laporan</h5>
+                <h5 class="card-title">LAPORAN</h5>
                 <p class="card-text">
-                  <?php echo $rs['tanggal_laporan']; ?> <br> 
+                  <?php echo $rs['tanggal_laporan']; ?> <br><br>
+                  <a href="detail_laporan.php?id=<?php echo $rs['id_laporan']; ?>">Detail</a>
                 </p> 
-                <a href="detail_laporan.php?id=<?php echo $rs['id_laporan']; ?>">Lihat Detail</a>
               </div>
             </div>
             <?php 
@@ -60,7 +61,8 @@
           </div>
         </div>
       </div>
-    </div><!-- End Blog Page -->
+    </div>
+    <!-- End Blog Page -->
 
   </main><!-- End #main -->
 

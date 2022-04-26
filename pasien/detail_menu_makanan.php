@@ -39,10 +39,11 @@
           <div class="col-md-8 col-sm-8 col-xs-12">
             <div class="row"> 
             <?php   
-	              $sql_mm   = "SELECT * FROM menu_makanan ORDER BY tanggal_makanan DESC";
-	              $r_mm    	= mysqli_query($conn,$sql_mm);
-	              while($rs_mm = mysqli_fetch_array($r_mm)){
-	          ?>
+                $id       = $_GET['id'];
+                $sql_mm   = "SELECT * FROM menu_makanan WHERE kode_makanan='".$id."'";
+                $r_mm     = mysqli_query($conn,$sql_mm);
+                while($rs_mm = mysqli_fetch_array($r_mm)){
+            ?>
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="single-blog">
                   <div class="single-blog-img">
@@ -59,17 +60,14 @@
                     <h4>
                       <a href="detai_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>"><?php echo $rs_mm['nama_makanan']; ?></a>
                     </h4> 
-                     <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                    	<?php echo $rs_mm['isi_makanan']; ?>
+                     <p>
+                      <?php echo $rs_mm['isi_makanan']; ?>
                     </p>
-                  </div>
-                  <span>
-                    <a href="detail_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>" class="ready-btn">Read more</a>
-                  </span>
+                  </div> 
                 </div>
               </div>
               <?php 
-              	}
+                }
               ?>
             </div>
           </div>

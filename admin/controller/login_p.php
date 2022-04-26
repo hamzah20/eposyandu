@@ -27,8 +27,7 @@
 
                 // Ubah status menjadi "1" (Sedang Login)
                 $sqlUpdStatus ="UPDATE `user` SET `active`='1' WHERE (id_user='".$username."' or username='".$username."')";
-                $r_updStatus    = mysqli_query($conn,$sqlUpdStatus);
-                //$rs_updStatus   = mysqli_fetch_array($r_updStatus); 
+                $r_updStatus    = mysqli_query($conn,$sqlUpdStatus);   
                 header('location:../index.php');
             }
             else{
@@ -40,8 +39,7 @@
             // Ubah status menjadi "0" (Sedang Tidak Login)
             $sqlUpdStatus ="UPDATE `user` SET `active`='0' 
                 WHERE (id_user='".$_SESSION['user_id']."' or username='".$_SESSION['username']."')";
-            $r_updStatus    = mysqli_query($conn,$sqlUpdStatus);
-            //$rs_updStatus   = mysqli_fetch_array($r_updStatus);
+            $r_updStatus    = mysqli_query($conn,$sqlUpdStatus); 
 
             $_SESSION['member_id']  = "";
             $_SESSION['user_id']    = "";
