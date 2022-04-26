@@ -28,7 +28,7 @@
                 // Ubah status menjadi "1" (Sedang Login)
                 $sqlUpdStatus ="UPDATE `user` SET `active`='1' WHERE (id_user='".$username."' or username='".$username."')";
                 $r_updStatus    = mysqli_query($conn,$sqlUpdStatus);
-               // $rs_updStatus   = mysqli_fetch_array($r_updStatus); 
+                //$rs_updStatus   = mysqli_fetch_array($r_updStatus); 
                 header('location:../index.php');
             }
             else{
