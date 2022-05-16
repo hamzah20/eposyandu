@@ -22,7 +22,7 @@
             ?>
           </select>
         </div>
-         <div class="mb-3">
+       <!--   <div class="mb-3">
           <label class="form-label">Bidan</label>
           <select class="form-select" name="slc_bidan">
             <?php 
@@ -35,7 +35,7 @@
               }
             ?>
           </select>
-        </div>
+        </div> -->
         <div class="mb-3">
           <label class="form-label">Tanggal</label>
           <input type="date" name="txt_tgl" class="form-control" placeholder="Tanggal" >

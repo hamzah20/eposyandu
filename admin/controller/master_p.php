@@ -444,7 +444,7 @@
         //-------------------------------------------- perhitungan
         case"TAMBAH_PERHITUNGAN":
             $ibu_hamil=$_POST['slc_hamil'];
-            $bidan=$_POST['slc_bidan'];
+            // $bidan=$_POST['slc_bidan'];
             $aktivitas=$_POST['slc_aktivitas'];
             $tgl=$_POST['txt_tgl'];
             $tb=$_POST['txt_tb'];
@@ -496,7 +496,7 @@
 
            
             //echo $usia_ibu_hamil;
-             $sql="INSERT INTO laporan ( id_laporan, id_kader_posyandu, id_bidan, id_ibu_hamil, tanggal_laporan, berat_badan, tinggi_badan, usia_ibu_hamil, bee, usia_kehamilan, tee, keluhan, catatan, kehamilan) VALUES ('".$doc_no."','".$_SESSION['user_id']."','".$bidan."','".$ibu_hamil."','".$tanggal."','".$bb."','".$tb."','".$usia_ibu_hamil."','".$bee."','".$usia."','".$tee."','".$keluhan."','".$catatan."','1')";
+              $sql="INSERT INTO laporan ( id_laporan, id_kader_posyandu, id_ibu_hamil, tanggal_laporan, berat_badan, tinggi_badan, usia_ibu_hamil, bee, tee, keluhan, catatan, kehamilan) VALUES ('".$doc_no."','".$_SESSION['user_id']."','".$ibu_hamil."','".$tanggal."','".$bb."','".$tb."','".$usia_ibu_hamil."','".$bee."','".$tee."','".$keluhan."','".$catatan."','1')";
              $r=mysqli_query($conn,$sql);
              header('location:../perhitungan.php');
 
@@ -637,15 +637,81 @@
             $id=$_POST['txt_id_laporan'];
             $keluhan=$_POST['txt_keluhan'];
             $catatan=$_POST['txt_catatan'];
+            $bidan=$_SESSION['user_id'];
 
             $sql="UPDATE laporan SET 
                 keluhan ='".$keluhan."', 
+                id_bidan ='".$bidan."', 
                 catatan ='".$catatan."'
                 where id_laporan='".$id."'
                 ";
              $r=mysqli_query($conn,$sql);
              header('location:../perhitungan.php');
 
+        break;
+        case"EXPORT_EXCEL_LAPORAN":
+        header("Content-type: application/vnd-ms-excel");
+            header("Content-Disposition: attachment; filename=Data Laporan ".$_GET['start_date']." - ".$_GET['end_date'].".xls");
+        ?>
+        <table style="border:1px solid #ddd;">
+                            <thead >
+                                <tr style="border:1px solid #ddd;">
+                                    <th>No</th>
+                                    <th>Id Ibu Hamil</th>
+                                    <th>Nama</th>
+                                    <th>BB</th> 
+                                    <th>TB</th> 
+                                    <th>USIA</th> 
+                                    <th>BEE</th> 
+                                    <th>TEE</th> 
+                                    <th>Tanggal Laporan</th> 
+                                    <th>Bidan</th> 
+                                    <th>Catatan</th> 
+                                    <th>Keluhan</th> 
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $i=1;
+                                   // $date=date('Y-m-d');
+                                    if(empty($_GET['start_date'])){
+                                        $sql="SELECT * FROM v_laporan  ";
+                                    }
+                                    else{
+                                        $sql="SELECT * FROM v_laporan  where tanggal_laporan>='".$_GET['start_date']."' and tanggal_laporan<='".$_GET['end_date']."'";
+                                    }
+                                    $r=mysqli_query($conn,$sql);
+                                    while($rs=mysqli_fetch_array($r)){
+                                        ?>
+                                        <tr style="border:1px solid #ddd;">
+                                            <td><?php echo $i;?></td>
+                                                
+                                            <td><?php echo $rs['id_ibu_hamil']?></td>
+                                        
+                                            <td><?php echo $rs['nama_ibu_hamil']?></td>
+                                        
+                                            <td><?php echo $rs['berat_badan']?></td>
+                                        
+                                            <td><?php echo $rs['tinggi_badan']?></td>
+                                        
+                                            <td><?php echo $rs['usia_ibu_hamil']?></td>
+                                        
+                                            <td><?php echo $rs['bee']?></td>
+                                        
+                                            <td><?php echo $rs['tee']?></td>
+                                            <td><?php echo $rs['tanggal_laporan']?></td>
+                                            <td><?php echo $rs['nama_bidan']?></td> 
+                                            <td><?php echo $rs['catatan']?></td>    
+                                            <td><?php echo $rs['keluhan']?></td>    
+                                        </tr>
+                                        <?php
+                                        $i++;
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+        <?php
         break;
     }
 
