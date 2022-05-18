@@ -58,6 +58,12 @@
 	             				<i class="align-middle" data-feather="user"></i> <span class="align-middle">Kader Posyandu</span>
 	            			</a>
 						</li>  
+						</li> 
+						<li class="sidebar-item  bg-sidebar" style="background-color: #2F4F4F;">
+							<a class="sidebar-link bg-sidebar" style="background-color: #2F4F4F;" href="laporan.php">
+	             				<i class="align-middle" data-feather="book"></i> <span class="align-middle">Laporan</span>
+	            			</a>
+						</li>  
 					<?php } ?>
 						<li class="sidebar-item bg-sidebar" style="background-color: #2F4F4F;"> 
 							<a class="sidebar-link bg-sidebar" style="background-color: #2F4F4F;" href="pages-sign-in.html">
