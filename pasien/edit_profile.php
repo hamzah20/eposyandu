@@ -44,6 +44,7 @@
                 $r_pro    = mysqli_query($conn,$sql_pro);
                 while($rs_pro = mysqli_fetch_array($r_pro)){
               ?> 
+              <form action="controller/master_p.php?role=PROSES_EDIT_PASIEN" method="POST">
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-2 col-form-label">ID</label>
                   <div class="col-sm-10">
@@ -53,60 +54,61 @@
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-2 col-form-label">Nama</label>
                   <div class="col-sm-10">
-                    <input type="text" name="txt_nama" value="<?php echo $rs_pro['nama_ibu_hamil']; ?>" class="form-control form-control-sm" readonly>
+                    <input type="text" name="txt_nama" value="<?php echo $rs_pro['nama_ibu_hamil']; ?>" class="form-control form-control-sm">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-2 col-form-label">Tempat Lahir</label>
                   <div class="col-sm-10">
-                    <input type="text" name="txt_tempat" value="<?php echo $rs_pro['tempat_lahir_ibu_hamil'] == null ? '...' : $rs_pro['tempat_lahir_ibu_hamil']; ?>" class="form-control form-control-sm" readonly>
+                    <input type="text" name="txt_tempat" value="<?php echo $rs_pro['tempat_lahir_ibu_hamil'] == null ? '' : $rs_pro['tempat_lahir_ibu_hamil']; ?>" class="form-control form-control-sm">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                   <div class="col-sm-10">
-                    <input type="text" name="txt_tanggal" value="<?php echo $rs_pro['tanggal_lahir_ibu_hamil']; ?>" class="form-control form-control-sm" readonly>
+                    <input type="date" name="txt_tanggal" value="<?php echo $rs_pro['tanggal_lahir_ibu_hamil']; ?>" class="form-control form-control-sm">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-2 col-form-label">No Telp</label>
                   <div class="col-sm-10">
-                    <input type="text" name="txt_telp" value="<?php echo $rs_pro['no_telp_ibu_hamil']; ?>" class="form-control form-control-sm" readonly>
+                    <input type="text" name="txt_telp" value="<?php echo $rs_pro['no_telp_ibu_hamil']; ?>" class="form-control form-control-sm">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-2 col-form-label">Alamat</label>
                   <div class="col-sm-10">
-                    <input type="text" name="txt_alamat" value="<?php echo $rs_pro['alamat_ibu_hamil']; ?>" class="form-control form-control-sm" readonly>
+                    <input type="text" name="txt_alamat" value="<?php echo $rs_pro['alamat_ibu_hamil']; ?>" class="form-control form-control-sm">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-2 col-form-label">Gol Darah</label>
                   <div class="col-sm-10">
-                    <input type="text" name="txt_darah" value="<?php echo $rs_pro['gol_darah_ibu_hamil'] == null ? '...' : $rs_pro['gol_darah_ibu_hamil']; ?>" class="form-control form-control-sm" readonly>
+                    <input type="text" name="txt_darah" value="<?php echo $rs_pro['gol_darah_ibu_hamil'] == null ? '' : $rs_pro['gol_darah_ibu_hamil']; ?>" class="form-control form-control-sm">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-2 col-form-label">Pekerjaan</label>
                   <div class="col-sm-10">
-                    <input type="text" name="txt_pekerjaan" value="<?php echo $rs_pro['pekerjaan_ibu_hamil'] == null ? '...' : $rs_pro['pekerjaan_ibu_hamil']; ?>" class="form-control form-control-sm" readonly>
+                    <input type="text" name="txt_pekerjaan" value="<?php echo $rs_pro['pekerjaan_ibu_hamil'] == null ? '' : $rs_pro['pekerjaan_ibu_hamil']; ?>" class="form-control form-control-sm">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-2 col-form-label">Kehamilan</label>
                   <div class="col-sm-10">
-                    <input type="text" name="txt_kehamilan" value="<?php echo $rs_pro['kehamilan'] == null ? '...' : $rs_pro['kehamilan']; ?>" class="form-control form-control-sm" readonly>
+                    <input type="text" name="txt_kehamilan" value="<?php echo $rs_pro['kehamilan'] == null ? '' : $rs_pro['kehamilan']; ?>" class="form-control form-control-sm">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="staticEmail" class="col-sm-2 col-form-label">Nama Suami</label>
                   <div class="col-sm-10">
-                    <input type="text" name="txt_suami" value="<?php echo $rs_pro['nama_suami'] == null ? '...' : $rs_pro['nama_suami']; ?>" class="form-control form-control-sm" readonly>
+                    <input type="text" name="txt_suami" value="<?php echo $rs_pro['nama_suami'] == null ? '' : $rs_pro['nama_suami']; ?>" class="form-control form-control-sm">
                   </div>
                 </div> 
                 <div class="mt-3">
-                  <a href="edit_profile.php?id=<?= $id; ?>" type="submit" class="btn btn-sm btn-warning text-white">Edit Profil</a>
+                  <button type="submit" class="btn btn-sm btn-success">Simpan</button>
                 </div>
+              </form>
               <?php } ?>
             </div>
           </div> 

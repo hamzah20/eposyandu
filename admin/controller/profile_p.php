@@ -345,13 +345,7 @@
             $suami      = $_POST['txt_suami'];  
 
             $updatePasien = "UPDATE `ibu_hamil` SET `nama_ibu_hamil`='".$nama."',`tempat_lahir_ibu_hamil`='".$tempat."',`tanggal_lahir_ibu_hamil`='".$tanggal."',`gol_darah_ibu_hamil`='".$darah."',`alamat_ibu_hamil`='".$alamat."',`pekerjaan_ibu_hamil`='".$pekerjaan."',`kehamilan`='".$kehamilan."',`no_telp_ibu_hamil`='".$telp."',`nama_suami`='".$suami."' WHERE `id_ibu_hamil`='".$id."'";
-            $r_updatePasien = mysqli_query($conn,$updatePasien);
-
-            if($r_updatePasien){
-
-            } else{
-
-            }
+            $r_updatePasien = mysqli_query($conn,$updatePasien); 
 
             header  ("location:../ibu_hamil.php");
            

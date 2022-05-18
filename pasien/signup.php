@@ -14,7 +14,7 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-in.html" />
 
-	<title>Sign In | EPosyandu</title>
+	<title>Sign Up | EPosyandu</title>
 
 	<link href="../boostrap/css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -32,18 +32,35 @@
 									<div class="text-center">
 										<img src="../boostrap/img/images/logo-kemenkes.png" alt="Charles Hall" class="img-fluid" width="200" height="200" />
 									</div>
-									<form action="controller/login_p.php?role=LOGIN_PASIEN" method="POST">
+									<form action="controller/signup_p.php?role=TAMBAH_PASIEN" method="POST">
+										<div class="mb-3">
+											<label class="form-label">Nama Lengkap</label>
+											<input class="form-control form-control-lg" type="text" name="txt_nama"/>
+										</div>
+										<div class="mb-2">
+											<label class="form-label">Tanggal Lahir</label>
+											<input class="form-control form-control-lg" type="date" name="txt_tanggal"/> 
+										</div>
+										<div class="mb-2">
+											<label class="form-label">No Telp</label>
+											<input class="form-control form-control-lg" type="text" name="txt_telp"/> 
+										</div>
+										<div class="mb-2">
+											<label class="form-label">Alamat</label>
+											<input class="form-control form-control-lg" type="text" name="txt_alamat"/> 
+										</div>
+										<hr>
 										<div class="mb-3">
 											<label class="form-label">Username</label>
-											<input class="form-control form-control-lg" type="text" name="username" placeholder="Enter your username" />
+											<input class="form-control form-control-lg" type="text" name="txt_username" />
 										</div>
 										<div class="mb-2">
 											<label class="form-label">Password</label>
-											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" /> 
+											<input class="form-control form-control-lg" type="password" name="txt_password" /> 
 										</div>
-										<p>Do you haven't account? <a href="signup.php">Sign Up</a></p>  
+										<p>Do you have account? <a href="login.php">Sign In</a></p>  
 										<div class="text-center mt-3">
-											<button type="submit" class="btn btn-lg btn-primary">Sign in</button>
+											<button type="submit" class="btn btn-lg btn-primary">Sign Up</button>
 										</div>
 									</form>
 								</div>
