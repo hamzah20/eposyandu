@@ -40,7 +40,7 @@
             <div class="row">  
              <?php  
               $today = date('Y-m-d');
-              $sql  = "SELECT * FROM jadwal WHERE tanggal_jadwal <= ".$today." ";
+              $sql  = "SELECT * FROM jadwal WHERE tanggal_jadwal >= '".$today."' ";
               $r    = mysqli_query($conn,$sql);
               while($rs = mysqli_fetch_array($r)){
              ?>
