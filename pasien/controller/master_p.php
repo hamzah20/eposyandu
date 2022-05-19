@@ -22,6 +22,71 @@
             header  ("location:../profile.php");
            
         break;
+
+        case"EXPORT_EXCEL_LAPORAN":
+        header("Content-type: application/vnd-ms-excel");
+            header("Content-Disposition: attachment; filename=Data Laporan ".$_GET['start_date']." - ".$_GET['end_date'].".xls");
+        ?>
+        <table style="border:1px solid #ddd;">
+            <thead >
+                <tr style="border:1px solid #ddd;">
+                    <th>No</th>
+                    <th>Id Ibu Hamil</th>
+                    <th>Nama</th>
+                    <th>BB</th> 
+                    <th>TB</th> 
+                    <th>USIA</th> 
+                    <th>BEE</th> 
+                    <th>TEE</th> 
+                    <th>Tanggal Laporan</th> 
+                    <th>Bidan</th> 
+                    <th>Catatan</th> 
+                    <th>Keluhan</th> 
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $i=1;
+                   // $date=date('Y-m-d');
+                    if(empty($_GET['start_date'])){
+                        $sql="SELECT * FROM v_laporan  ";
+                    }
+                    else{
+                        $sql="SELECT * FROM v_laporan  where tanggal_laporan>='".$_GET['start_date']."' and tanggal_laporan<='".$_GET['end_date']."'";
+                    }
+                    $r=mysqli_query($conn,$sql);
+                    while($rs=mysqli_fetch_array($r)){
+                        ?>
+                        <tr style="border:1px solid #ddd;">
+                            <td><?php echo $i;?></td>
+                                
+                            <td><?php echo $rs['id_ibu_hamil']?></td>
+                        
+                            <td><?php echo $rs['nama_ibu_hamil']?></td>
+                        
+                            <td><?php echo $rs['berat_badan']?></td>
+                        
+                            <td><?php echo $rs['tinggi_badan']?></td>
+                        
+                            <td><?php echo $rs['usia_ibu_hamil']?></td>
+                        
+                            <td><?php echo $rs['bee']?></td>
+                        
+                            <td><?php echo $rs['tee']?></td>
+                            <td><?php echo $rs['tanggal_laporan']?></td>
+                            <td><?php echo $rs['nama_bidan']?></td> 
+                            <td><?php echo $rs['catatan']?></td>    
+                            <td><?php echo $rs['keluhan']?></td>    
+                        </tr>
+                        <?php
+                        $i++;
+                    }
+                ?>
+            </tbody>
+        </table>
+        <?php
+        break;
     }
         
 ?>

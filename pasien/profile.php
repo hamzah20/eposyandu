@@ -105,7 +105,7 @@
                   </div>
                 </div> 
                 <div class="mt-3">
-                  <a href="edit_profile.php?id=<?= $id; ?>" type="submit" class="btn btn-sm btn-warning text-white">Edit Profil</a>
+                  <a href="edit_profile.php?id=<?= $id; ?>" type="submit" class="btn btn-sm btn-warning text-white">Edit Profile</a>
                 </div>
               <?php } ?>
             </div>

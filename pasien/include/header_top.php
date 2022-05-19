@@ -17,7 +17,12 @@
               <li><a href="informasi_gizi.php">Informasi Gizi</a></li> 
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="profile.php">Profile</a></li>
+          <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="profile.php">Edit Profile</a></li> 
+              <li><a href="laporan.php">Laporan</a></li> 
+            </ul>
+          </li> 
           <li><a class="nav-link scrollto" href="controller/login_p.php?role=LOGOUT">Logout</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

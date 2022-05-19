@@ -20,9 +20,7 @@
 									<input type="date" name="txt_end_date" class="form-control" placeholder="Date End" style="margin-left:10px;width: 200px;float: left;">
 									<input type="submit" value="Cari" class="btn btn-primary" style="margin-left:10px;width: 100px;float: left;">
 								</form>
-								<a href="controller/master_p.php?role=EXPORT_EXCEL_LAPORAN&start_date=<?php echo $_POST['txt_start_date']?>&end_date=<?php echo $_POST['txt_end_date']?>" style="margin-left:10px;float: left;font-size: 24px;"><span class="iconify" data-icon="mdi:microsoft-excel"></span></a>
-								<!-- <a href="" style="margin-left:10px;float: left;font-size: 24px;"><span class="iconify" data-icon="mdi:microsoft-word"></span></a>
-								<a href="" style="margin-left:10px;float: left;font-size: 24px;"><span class="iconify" data-icon="carbon:generate-pdf"></span></a> -->
+								<a href="controller/master_p.php?role=EXPORT_EXCEL_LAPORAN&start_date=<?php echo $_POST['txt_start_date']?>&end_date=<?php echo $_POST['txt_end_date']?>" style="margin-left:10px;float: left;font-size: 24px;"><span class="iconify" data-icon="mdi:microsoft-excel"></span></a> 
 								
 							</div>
 						</div> 
