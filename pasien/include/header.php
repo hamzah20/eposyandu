@@ -29,4 +29,5 @@
 
   <!-- Template Main CSS File -->
   <link href="../boostrap/assets/css/style.css" rel="stylesheet"> 
+  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 </head>
