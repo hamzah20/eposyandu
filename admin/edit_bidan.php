@@ -12,7 +12,7 @@
 			<div class="card">
 				<div class="card-body">
 					<div class="row">
-						<h2> <span class="badge bg-success mb-3">PASIEN POSYANDU</span></h2> 
+						<h2> <span class="badge bg-success mb-3">BIDAN POSYANDU</span></h2> 
 						<?php  
 							$no 			= 1;
 							$DataBidan 		= "SELECT * FROM bidan where id_bidan='".$_GET['id']."'";

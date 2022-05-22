@@ -53,7 +53,7 @@
             $r= mysqli_query($conn,$sql);
             $rs = mysqli_fetch_array($r);
             ?>
-                <div class="mb-3">
+                 <div class="mb-3">
                   <label class="form-label">Kode Jadwal</label>
                   <input type="text" name="txt_kode" class="form-control" placeholder="kode" value="<?php echo $rs['kode_jadwal'];?>" readonly>
                   <input type="hidden" name="txt_rec_id" class="form-control" placeholder="kode" value="<?php echo $id;?>" readonly>
@@ -73,7 +73,7 @@
                 <div class="mb-3">
                   <label class="form-label">Tempat</label>
                   <input type="text" name="txt_tempat" class="form-control" placeholder="Tempat" value="<?php echo $rs['tempat_jadwal'];?>">
-                </div>
+                </div> 
             <?php
         break;
         case"PROSES_EDIT_JADWAL":
@@ -366,6 +366,7 @@
 
                 <div class="mb-3">
                   <label>&nbsp;</label>
+
                     <img src="../<?php echo $rs['gambar_makanan']?>" class="img-fluid">
                 
                 </div>

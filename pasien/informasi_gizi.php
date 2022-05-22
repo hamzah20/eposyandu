@@ -47,7 +47,7 @@
                 <div class="single-blog">
                   <div class="single-blog-img">
                     <a href="detai_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>">
-                      <img src="../<?php echo $rs_ig['gambar_infomasi']; ?>" alt="">
+                      <img src="../<?php echo $rs_ig['gambar_informasi']; ?>" alt="">
                     </a>
                   </div>
                   <div class="blog-meta"> 
@@ -59,8 +59,23 @@
                     <h4>
                       <a href="detai_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>"><?php echo $rs_ig['judul_informasi']; ?></a>
                     </h4> 
-                    <p>
-                    	<?php echo $rs_ig['deskripsi_informasi']; ?>
+                    <p style="text-align: justify;">
+                      <?php //echo $rs_mm['isi_makanan']; 
+
+                      $string = strip_tags($rs_ig['deskripsi_informasi']);
+                      if (strlen($string) > 300) {
+
+                          // truncate string
+                          $stringCut = substr($string, 0, 300);
+                          $endPoint = strrpos($stringCut, ' ');
+
+                          //if the string doesn't contain any space then it will cut without word basis.
+                          $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                          $string .= '... ';
+                      }
+                      echo $string;
+                      ?>
+
                     </p>
                   </div>
                   <span>

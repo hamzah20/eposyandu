@@ -65,11 +65,11 @@
 	            			</a>
 						</li>  
 					<?php } ?>
-						<li class="sidebar-item bg-sidebar" style="background-color: #2F4F4F;"> 
+						<!-- <li class="sidebar-item bg-sidebar" style="background-color: #2F4F4F;"> 
 							<a class="sidebar-link bg-sidebar" style="background-color: #2F4F4F;" href="pages-sign-in.html">
 	              				<i class="align-middle" data-feather="log-out"></i> 
 	              				<span class="align-middle">Sign Out</span>
 	            			</a>
-						</li>  
+						</li>  --> 
 			</div>
 		</nav>

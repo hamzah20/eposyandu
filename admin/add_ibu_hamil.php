@@ -12,12 +12,7 @@
 			<div class="card">
 				<div class="card-body">
 					<div class="row">
-						<h2> <span class="badge bg-success mb-3">PASIEN POSYANDU</span></h2>
-						<div class="row">
-							<div class="col- mb-3">
-								<a href="ibu_hamil.php"><button type="button" class="btn btn-primary"><i class="align-middle me-2" data-feather="plus"></i> Data Pasien </button> </a>
-							</div>
-						</div> 
+						<h2> <span class="badge bg-success mb-3">PASIEN POSYANDU</span></h2> 
 						<form action="controller/profile_p.php?role=TAMBAH_PASIEN" method="POST">
 						<div class="row"> 
 							<div class="col-6">
@@ -55,7 +50,7 @@
 						</div><hr>
 						<div class="row">
 							<div class="col-">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+								<a class="btn btn-secondary" href="ibu_hamil.php">Close</a> 
         						<input type="submit" class="btn btn-primary" value="Save Changes">
 							</div> 
 						</div>

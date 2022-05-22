@@ -59,8 +59,23 @@
                     <h4>
                       <a href="detai_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>"><?php echo $rs_mm['nama_makanan']; ?></a>
                     </h4> 
-                     <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                    	<?php echo $rs_mm['isi_makanan']; ?>
+                     <p style="text-align: justify;">
+                    	<?php //echo $rs_mm['isi_makanan']; 
+
+                      $string = strip_tags($rs_mm['isi_makanan']);
+                      if (strlen($string) > 300) {
+
+                          // truncate string
+                          $stringCut = substr($string, 0, 300);
+                          $endPoint = strrpos($stringCut, ' ');
+
+                          //if the string doesn't contain any space then it will cut without word basis.
+                          $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                          $string .= '... ';
+                      }
+                      echo $string;
+                      ?>
+
                     </p>
                   </div>
                   <span>

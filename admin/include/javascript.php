@@ -86,6 +86,7 @@
 	        });
 	    }
 	    function edit_jadwal(id){
+	    	//alert(id);
 	      $.ajax({
 	          url: 'controller/master_p.php?role=EDIT_JADWAL',
 	          type: 'post',
@@ -97,7 +98,7 @@
 	            $('.modalEditJadwal').html(body_Edit);
 	            // Display Modal
 	            $('#editjadwal').modal('show');
-	             tinymce.init({selector:'textarea'});
+	             //tinymce.init({selector:'textarea'});
 	          }
 	        });
 	    }
@@ -214,21 +215,21 @@
           }
         });
     }
-    function edit_jadwal(id){
-      $.ajax({
-          url: 'controller/master_p.php?role=EDIT_JADWAL',
-          type: 'post',
-          data: {id: id},
-          success: function(body_Edit){ 
+    // function edit_jadwal(id){
+    //   $.ajax({
+    //       url: 'controller/master_p.php?role=EDIT_JADWAL',
+    //       type: 'post',
+    //       data: {id: id},
+    //       success: function(body_Edit){ 
            
-            // Add response in Modal body
-            $('.modalEditJadwal').html(body_Edit);
-            // Display Modal
-            $('#addjadwal').modal('show');
-             tinymce.init({selector:'textarea'});
-          }
-        });
-    }
+    //         // Add response in Modal body
+    //         $('.modalEditJadwal').html(body_Edit);
+    //         // Display Modal
+    //         $('#addjadwal').modal('show');
+    //          tinymce.init({selector:'textarea'});
+    //       }
+    //     });
+    // }
 
     //--------------------------------- informasi
      function delete_informasi(id){

@@ -46,7 +46,7 @@
 											<td><?php echo $rs['tempat_jadwal']?></td>
 											<td class="d-none d-xl-table-cell"><span class="badge bg-success">Akan Dilaksanakan</span></td>
 											<td>  
-													<button class="btn btn-sm btn-warning"  onclick="edit_jadwal(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="edit-2"></i></button>
+													<button class="btn btn-sm btn-warning"  onclick="edit_jadwal('<?php echo $rs['rec_id']?>')"><i class="align-middle me-2" data-feather="edit-2"></i></button>
 
 													<button class="btn btn-sm btn-danger"  onclick="delete_jadwal(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="trash"></i></button>
 											</td>
@@ -63,9 +63,9 @@
 					</div> 
 				</div>
 			</div> 
-									
+			<?php include('modal/edit_jadwal.php'); ?>					
 			<?php include('modal/add_jadwal.php'); ?>		
-			<?php include('modal/edit_jadwal.php'); ?>		
+					
 			<?php include('include/footer.php'); ?>
 		</div>
 	</div>

@@ -71,7 +71,7 @@
             // Gagal hapus data, data sudah pernah dipakai
 
             if($rs_cekKaderLap['TOTAL_USER'] == 0){
-                if($rs_cekLogUser == '0'){
+                if($rs_cekLogUser['active'] == '0'){
                     $delKader      = "DELETE FROM kader_posyandu where id_kader='".$id."'";
                     $queryDelKader = mysqli_query($conn,$delKader);
 
@@ -84,7 +84,7 @@
             } else{
                 // Kirim alert, gagal menghapus data
             }
-            header  ("location:../kader.php");
+            // header  ("location:../kader.php");
 
         break;
 
@@ -202,7 +202,7 @@
             // Gagal hapus data, data sudah pernah dipakai
 
             if($rs_cekBidanLap['TOTAL_USER'] == 0){
-                if($rs_cekLogUser == '0'){
+                if($rs_cekLogUser['active'] == '0'){
                     $delBidan      = "DELETE FROM bidan where id_bidan='".$id."'";
                     $queryDelBidan = mysqli_query($conn,$delBidan);
 
@@ -213,8 +213,7 @@
                 }
             } else{
                 // Kirim alert, gagal menghapus data
-            }
-            header  ("location:../bidan.php");
+            } 
 
         break;
 
@@ -316,19 +315,17 @@
             // Gagal hapus data, data sudah pernah dipakai
 
             if($rs_cekPasienLap['TOTAL_USER'] == 0){
-                if($rs_cekLogUser == '0'){
+               // echo "disini";
+               // echo $rs_cekLogUser['active'];
+                if($rs_cekLogUser['active'] == 0){
                     $delPasien      = "DELETE FROM ibu_hamil where id_ibu_hamil='".$id."'";
                     $queryDelBidan = mysqli_query($conn,$delPasien);
 
                     $delUser      = "DELETE FROM user where id_user='".$id."'";
                     $queryDelUser = mysqli_query($conn,$delUser);
-                } else{
-                    // Kirim alert, berhasil menghapus data 
-                }
-            } else{
-                // Kirim alert, gagal menghapus data
-            }
-            header  ("location:../ibu_hamil.php");
+               }
+            } 
+            
 
         break; 
 
