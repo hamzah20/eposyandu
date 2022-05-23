@@ -50,14 +50,19 @@
                     $i=1;
                    // $date=date('Y-m-d');
                     if(empty($_GET['start_date'])){
-                        $sql="SELECT * FROM v_laporan  ";
+                        $sql="SELECT * FROM v_laporan where id_ibu_hamil='".$_SESSION['id_user']."' ";
                     }
                     else{
-                        $sql="SELECT * FROM v_laporan  where tanggal_laporan>='".$_GET['start_date']."' and tanggal_laporan<='".$_GET['end_date']."'";
+                        $sql="SELECT * FROM v_laporan  where tanggal_laporan>='".$_GET['start_date']."' and tanggal_laporan<='".$_GET['end_date']."' and id_ibu_hamil='".$_SESSION['id_user']."'";
                     }
                     $r=mysqli_query($conn,$sql);
+                ?>
+                    <tr>
+                        <td colspan="12" class="fw-bold">DATA LAPORAN</td>
+                    </tr>
+                <?php
                     while($rs=mysqli_fetch_array($r)){
-                        ?>
+                ?>
                         <tr style="border:1px solid #ddd;">
                             <td><?php echo $i;?></td>
                                 
@@ -76,7 +81,7 @@
                             <td><?php echo $rs['tee']?></td>
                             <td><?php echo $rs['tanggal_laporan']?></td>
                             <td><?php echo $rs['nama_bidan']?></td> 
-                            <td><?php echo $rs['catatan']?></td>    
+                            <td><?php echo str_replace("</p>","",str_replace("<p>","",$rs['catatan']));?></td>    
                             <td><?php echo $rs['keluhan']?></td>    
                         </tr>
                         <?php
