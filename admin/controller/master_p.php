@@ -688,7 +688,7 @@
                             <td><?php echo $rs['tee']?></td>
                             <td><?php echo $rs['tanggal_laporan']?></td>
                             <td><?php echo $rs['nama_bidan']?></td> 
-                            <td><?php echo $rs['catatan']?></td>    
+                            <td><?php echo str_replace("</p>","",str_replace("<p>","",$rs['catatan']));?></td>    
                             <td><?php echo $rs['keluhan']?></td>    
                         </tr>
                         <?php
