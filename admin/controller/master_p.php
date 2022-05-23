@@ -156,16 +156,9 @@
                     <label class="form-label">Tanggal Informasi</label>
                     <input type="date" name="txt_tgl" class="form-control" placeholder="Tanggal" readonly="" value="<?php echo $rs['tanggal_informasi']?>">
                 </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Deskripsi</label>
-                    <textarea class="form-control" name='txt_deskripsi' disabled=""> <?php echo $rs['deskripsi_informasi']?></textarea>
-                </div>
-
-                <div class="mb-3">
-                <label>Gambar</label>
-                    <img src="../<?php echo $rs['gambar_informasi']?>" class="img-fluid">
-                </div>
+                <hr>
+                <img src="../<?php echo $rs['gambar_informasi']?>" class="img-fluid mb-3">
+                <?php echo $rs['deskripsi_informasi']?> 
             <?php
         break;
         case"DELETE_INFORMASI":
@@ -289,9 +282,7 @@
             }else{
                 $run_no = str_pad(strval(intval(1)), 5, "0", STR_PAD_LEFT);
             }
-             $doc_no="M".$year.$run_no;
-
-
+             $doc_no="M".$year.$run_no; 
             
             $ext = end(explode('.', $_FILES["txt_image"]["name"])); // upload file ext
             
@@ -320,22 +311,16 @@
                 <div class="mb-3">
                     <label class="form-label">Nama Makanan</label>
                     <input type="text" name="txt_judul" class="form-control" placeholder="Judul" readonly="" value="<?php echo $rs['nama_makanan']?>">
-                </div>
+                </div> 
 
                 <div class="mb-3">
                     <label class="form-label">Tanggal Makanan</label>
                     <input type="date" name="txt_tgl" class="form-control" placeholder="Tanggal" readonly="" value="<?php echo $rs['tanggal_makanan']?>">
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Isi Makanan</label>
-                    <textarea class="form-control" name='txt_deskripsi' disabled=""> <?php echo $rs['isi_makanan']?></textarea>
-                </div>
-
-                <div class="mb-3">
-                <label>Gambar</label>
-                    <img src="../<?php echo $rs['gambar_makanan']?>" class="img-fluid">
-                </div>
+                <hr> 
+                <img src="../<?php echo $rs['gambar_makanan']?>" class="img-fluid mb-2">
+                <?php echo $rs['isi_makanan']?> 
             <?php
         break;
         case"EDIT_MAKANAN":
