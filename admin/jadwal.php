@@ -44,11 +44,24 @@
 
 											<td><?php echo $rs['tanggal_jadwal']." ".$rs['waktu_jadwal']?></td>
 											<td><?php echo $rs['tempat_jadwal']?></td>
-											<td class="d-none d-xl-table-cell"><span class="badge bg-success">Akan Dilaksanakan</span></td>
+											<?php 
+												$today = date('Y-m-d');
+												$jadwal = $rs['tanggal_jadwal'];
+												if($jadwal < $today){
+											?> 
+												<td class="d-none d-xl-table-cell"><span class="badge bg-danger">Selesai Dilaksanakan</span></td>
+											<?php
+												} else{
+											?>
+												<td class="d-none d-xl-table-cell"><span class="badge bg-success">Akan Dilaksanakan</span></td>
+											<?php
+												}	
+											?>
+											
 											<td>  
-													<button class="btn btn-sm btn-warning"  onclick="edit_jadwal('<?php echo $rs['rec_id']?>')"><i class="align-middle me-2" data-feather="edit-2"></i></button>
+													<button class="btn btn-sm btn-warning"  onclick="edit_jadwal('<?php echo $rs['rec_id']?>')"><i class="align-middle" data-feather="edit"></i></button>
 
-													<button class="btn btn-sm btn-danger"  onclick="delete_jadwal(<?php echo $rs['rec_id']?>)"><i class="align-middle me-2" data-feather="trash"></i></button>
+													<button class="btn btn-sm btn-danger"  onclick="delete_jadwal(<?php echo $rs['rec_id']?>)"><i class="align-middle" data-feather="trash-2"></i></button>
 											</td>
 										</tr>
 										<?php
