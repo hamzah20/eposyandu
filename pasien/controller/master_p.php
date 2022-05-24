@@ -61,12 +61,7 @@
                     else{
                         $sql="SELECT * FROM v_laporan  where tanggal_laporan>='".$_GET['start_date']."' and tanggal_laporan<='".$_GET['end_date']."' and id_ibu_hamil='".$_SESSION['id_user']."'";
                     }
-                    $r=mysqli_query($conn,$sql);
-                ?>
-                    <tr>
-                        <td colspan="12" class="fw-bold">DATA LAPORAN</td>
-                    </tr>
-                <?php
+                    $r=mysqli_query($conn,$sql); 
                     while($rs=mysqli_fetch_array($r)){
                 ?>
                         <tr style="border:1px solid #ddd;">
