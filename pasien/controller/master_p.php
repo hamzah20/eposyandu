@@ -29,6 +29,12 @@
         ?>
         <table style="border:1px solid #ddd;">
             <thead >
+                 <tr>
+                    <th colspan="12" style="font-size: 16px;">DATA LAPORAN</th>
+                </tr>
+                <tr>
+                    <th colspan="12"></th>
+                </tr>
                 <tr style="border:1px solid #ddd;">
                     <th>No</th>
                     <th>Id Ibu Hamil</th>
