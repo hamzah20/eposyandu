@@ -40,7 +40,7 @@
             <div class="row"> 
               <div class="row">
                 <div class="col- mb-3">
-                  <form action="laporan.php" method="POST">
+                  <form action="laporan.php" method="POST"> 
                     <table>
                       <tr>
                         <td>Dari :</td>

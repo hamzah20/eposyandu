@@ -7,7 +7,7 @@
             $username = $_POST['username'];
             $password = md5($_POST['password']); 
 
-            echo $sqlemail="SELECT COUNT(*) AS TOTAL_USER FROM user where (id_user='".$username."' or username='".$username."') and password='".$password."' and user_group='Pasien' ";
+            $sqlemail="SELECT COUNT(*) AS TOTAL_USER FROM user where (id_user='".$username."' or username='".$username."') and password='".$password."' and user_group='Pasien' ";
 
            // echo $sqlemail;
             //exit();

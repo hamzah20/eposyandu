@@ -26,7 +26,7 @@
         case"EXPORT_EXCEL_LAPORAN":
         header("Content-type: application/vnd-ms-excel");
             header("Content-Disposition: attachment; filename=Data Laporan ".$_GET['start_date']." - ".$_GET['end_date'].".xls");
-        ?>
+        ?> 
         <table style="border:1px solid #ddd;">
             <thead >
                  <tr>
@@ -56,10 +56,10 @@
                     $i=1;
                    // $date=date('Y-m-d');
                     if(empty($_GET['start_date'])){
-                        $sql="SELECT * FROM v_laporan where id_ibu_hamil='".$_SESSION['id_user']."' ";
+                        $sql="SELECT * FROM v_laporan where id_ibu_hamil='".$_SESSION['user_id']."' ";
                     }
                     else{
-                        $sql="SELECT * FROM v_laporan  where tanggal_laporan>='".$_GET['start_date']."' and tanggal_laporan<='".$_GET['end_date']."' and id_ibu_hamil='".$_SESSION['id_user']."'";
+                        $sql="SELECT * FROM v_laporan  where tanggal_laporan>='".$_GET['start_date']."' and tanggal_laporan<='".$_GET['end_date']."' and id_ibu_hamil='".$_SESSION['user_id']."'";
                     }
                     $r=mysqli_query($conn,$sql); 
                     while($rs=mysqli_fetch_array($r)){
