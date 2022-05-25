@@ -18,8 +18,18 @@
 							$DataBidan 		= "SELECT * FROM bidan where id_bidan='".$_GET['id']."'";
 							$queryDataBidan	= mysqli_query($conn,$DataBidan);
 							while($RSDataBidan = mysqli_fetch_array($queryDataBidan)){
+						if(empty($_GET['type_edit'])){
+							?>
+						<form action="controller/profile_p.php?role=PROSES_EDIT_BIDAN&type_edit=KOSONG" method="POST">
+							<?php
+						}else{
+							?>
+						<form action="controller/profile_p.php?role=PROSES_EDIT_BIDAN&type_edit=<?php echo $_GET['type_edit']?>" method="POST">
+
+							<?php
+						}
 						?>
-						<form action="controller/profile_p.php?role=PROSES_EDIT_BIDAN" method="POST">
+
 						<div class="row"> 
 							<div class="col-6">
 								<label class="form-label">ID Bian</label>

@@ -228,15 +228,16 @@
             $pendidikan = $_POST['txt_pendidikan']; 
 
             $updateBidan = "UPDATE `bidan` SET `nama_bidan`='".$nama."',`nip_bidan`='".$nip."',`tanggal_lahir_bidan`='".$tanggal."',`tempat_lahir_bidan`='".$tempat."',`pendidikan_bidan`='".$pendidikan."',`agama_bidan`='".$agama."',`no_telp_bidan`='".$telp."' WHERE `id_bidan`='".$id."'";
-            $r_updateBidan = mysqli_query($conn,$updateBidan);
+            $r_updateBidan = mysqli_query($conn,$updateBidan); 
 
-            if($r_updateBidan){
-
-            } else{
+            if($_GET['type_edit']=="KOSONG"){
+            header  ("location:../bidan.php");
 
             }
+            else{
+            header  ("location:../dashboard.php");
 
-            header  ("location:../bidan.php");
+            }
 
         break;
         

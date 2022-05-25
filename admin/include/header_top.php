@@ -23,7 +23,7 @@
 								<?php
 									} elseif($_SESSION['user_group'] == 'Bidan Posyandu'){
 								?>
-										<a class="dropdown-item" href="edit_bidan.php?id=<?php echo $_SESSION['user_id']; ?>"><i class="align-middle me-1" data-feather="user"></i> Edit Bidan Posyandu</a> 
+										<a class="dropdown-item" href="edit_bidan.php?id=<?php echo $_SESSION['user_id']; ?>&type_edit=EDIT_PHEADER"><i class="align-middle me-1" data-feather="user"></i> Edit Bidan Posyandu</a> 
 								<?php
 									} elseif($_SESSION['user_group'] == 'Pasien'){
 								?>
