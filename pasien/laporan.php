@@ -67,11 +67,11 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Tanggal Laporan</th> 
-                        <th>Id Ibu Hamil</th>
-                        <th>Nama</th> 
-                        <th>BEE</th> 
+                        <th>Tanggal Laporan</th>  
+                        <th>Nama</th>  
                         <th>TEE</th>   
+                        <th>Keluhan</th>   
+                        <th>Catatan</th>   
                       </tr>
                     </thead>
                     <tbody>
@@ -89,11 +89,11 @@
                           ?>
                           <tr>
                             <td><?php echo $i;?></td> 
-                            <td><?php echo $rs['tanggal_laporan']?></td> 
-                            <td><?php echo $rs['id_ibu_hamil']?></td> 
-                            <td><?php echo $rs['nama_ibu_hamil']?></td>
-                            <td><?php echo $rs['bee']?></td>
+                            <td><?php echo $rs['tanggal_laporan']?></td>  
+                            <td><?php echo $rs['nama_ibu_hamil']?></td> 
                             <td><?php echo $rs['tee']?></td>
+                            <td><?php echo $rs['keluhan']?></td>
+                            <td><?php echo $rs['catatan']?></td>
                           </tr>
                           <?php
                           $i++;
