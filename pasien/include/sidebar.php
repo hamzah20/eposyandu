@@ -20,7 +20,7 @@
                         </a>
                       </div>
                       <div class="pst-content">
-                        <p><a href="detail_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>"> <?php echo $rs_mm['nama_makanan']; ?></a></p>
+                        <p><a href="../detail_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>"> <?php echo $rs_mm['nama_makanan']; ?></a></p>
                       </div>
                     </div>
                     <?php 
@@ -40,7 +40,7 @@
                         </a>
                       </div>
                       <div class="pst-content">
-                        <p><a ref="detail_informasi.php?id=<?php echo $rs_ig['kode_informasi']; ?>"> <?php echo $rs_ig['judul_informasi']; ?></a></p>
+                        <p><a ref="../detail_informasi.php?id=<?php echo $rs_ig['kode_informasi']; ?>"> <?php echo $rs_ig['judul_informasi']; ?></a></p>
                       </div>
                     </div>
                     <?php 
