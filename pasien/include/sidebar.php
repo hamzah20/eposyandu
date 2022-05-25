@@ -15,12 +15,12 @@
                     <!-- start single post -->
                     <div class="recent-single-post">
                       <div class="post-img">
-                        <a href="#">
+                        <a href="../pasien/detail_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>">
                           <img src="../<?php echo $rs_mm['gambar_makanan']; ?>" alt="">
                         </a>
                       </div>
                       <div class="pst-content">
-                        <p><a href="../detail_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>"> <?php echo $rs_mm['nama_makanan']; ?></a></p>
+                        <p><a href="../pasien/detail_menu_makanan.php?id=<?php echo $rs_mm['kode_makanan']; ?>"> <?php echo $rs_mm['nama_makanan']; ?></a></p>
                       </div>
                     </div>
                     <?php 
@@ -35,12 +35,12 @@
                     <!-- start single post -->
                     <div class="recent-single-post">
                       <div class="post-img">
-                        <a href="#">
+                        <a href="../pasien/detail_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>">
                           <img src="assets/img/blog/1.jpg" alt="">
                         </a>
                       </div>
                       <div class="pst-content">
-                        <p><a ref="../detail_informasi.php?id=<?php echo $rs_ig['kode_informasi']; ?>"> <?php echo $rs_ig['judul_informasi']; ?></a></p>
+                        <p><a href="../pasien/detail_informasi_gizi.php?id=<?php echo $rs_ig['kode_informasi']; ?>"> <?php echo $rs_ig['judul_informasi']; ?></a></p>
                       </div>
                     </div>
                     <?php 
