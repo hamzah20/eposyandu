@@ -125,7 +125,7 @@
 						<div class="card-body">
 							<div class="row">
 								<div class="col mt-0">
-									<h5 class="card-title">Informasi Gizi</h5>
+									<h5 class="card-title">Informasi Kehamilan</h5>
 								</div>
 
 								<div class="col-auto">
