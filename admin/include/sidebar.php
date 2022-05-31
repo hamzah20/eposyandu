@@ -1,6 +1,6 @@
 		<nav id="sidebar" class="sidebar js-sidebar ">
 			<div class="sidebar-content js-simplebar bg-sidebar" style="background-color: #2F4F4F;">
-				<a class="sidebar-brand  py-1" href="index.html">
+				<a class="sidebar-brand  py-1" href="dashboard.php">
           			<!-- <span class="align-middle">Eposyandu</span> -->
           			<img src="../boostrap/img/images/dashboard-kemenkes.png" alt="Charles Hall" class="img-fluidr" width="130" />
         		</a>
