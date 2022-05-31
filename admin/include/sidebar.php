@@ -32,7 +32,7 @@
 					<?php if($_SESSION['user_group'] == 'Bidan Posyandu'){ ?>
 						<li class="sidebar-item  bg-sidebar" style="background-color: #2F4F4F;">
 							<a class="sidebar-link  bg-sidebar" style="background-color: #2F4F4F;" href="informasi.php">
-	              				<i class="align-middle" data-feather="book"></i> <span class="align-middle">Master Informasi Gizi</span>
+	              				<i class="align-middle" data-feather="book"></i> <span class="align-middle">Master Informasi Kehamilan</span>
 	            			</a>
 						</li>
 						<li class="sidebar-item  bg-sidebar" style="background-color: #2F4F4F;">
