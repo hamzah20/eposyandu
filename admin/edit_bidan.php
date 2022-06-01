@@ -32,7 +32,7 @@
 
 						<div class="row"> 
 							<div class="col-6">
-								<label class="form-label">ID Bian</label>
+								<label class="form-label">ID BiDan</label>
 								<input type="text" name="txt_id" class="form-control mb-3" value="<?php echo $RSDataBidan['id_bidan']; ?>" readonly> 
 								<label class="form-label">Nama Lengkap</label>
           						<input type="text" name="txt_nama" class="form-control mb-3" placeholder="Nama Lengkap" value="<?php echo $RSDataBidan['nama_bidan']; ?>" >

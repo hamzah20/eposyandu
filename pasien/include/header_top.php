@@ -12,7 +12,7 @@
           <li class="dropdown"><a href="#"><span>Article</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="menu_makanan.php">Menu Makanan</a></li> 
-              <li><a href="informasi_gizi.php">Informasi Gizi</a></li> 
+              <li><a href="informasi_gizi.php">Informasi Kehamilan</a></li> 
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-down"></i></a>
