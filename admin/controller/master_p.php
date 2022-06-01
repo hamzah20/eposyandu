@@ -432,7 +432,7 @@
             $ibu_hamil=$_POST['slc_hamil'];
             // $bidan=$_POST['slc_bidan'];
             $aktivitas=$_POST['slc_aktivitas'];
-            $tgl=$_POST['txt_tgl'];
+            $tgl = date('Y-m-d');
             $tb=$_POST['txt_tb'];
             $bb=$_POST['txt_bb'];
             $usia=$_POST['txt_usia'];

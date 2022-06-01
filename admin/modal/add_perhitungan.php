@@ -35,11 +35,7 @@
               }
             ?>
           </select>
-        </div> -->
-        <div class="mb-3">
-          <label class="form-label">Tanggal</label>
-          <input type="date" name="txt_tgl" class="form-control" placeholder="Tanggal" >
-        </div>
+        </div> --> 
         <div class="row">
           <div class="col-sm-6">
             <div class="mb-3">

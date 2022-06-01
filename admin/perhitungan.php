@@ -12,11 +12,11 @@
 			<div class="card">
 				<div class="card-body">
 					<div class="row">
-						<h2> <span class="badge bg-success mb-3">PERHITUNGAN GIZI</span></h2>
+						<h2> <span class="badge bg-success mb-3">PENGHITUNGAN GIZI</span></h2>
 						<div class="row">
 							<div class="col- mb-3">
 								<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPerhitungan"><i class="align-middle me-2" data-feather="plus"></i>
-							  Input Perhitungan
+							  Input Penghitungan
 							</button> 
 							</div>
 						</div> 

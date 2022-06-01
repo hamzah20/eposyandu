@@ -16,7 +16,7 @@
 					<?php if($_SESSION['user_group'] == 'Kader Posyandu' OR $_SESSION['user_group'] == 'Bidan Posyandu'){ ?>
 						<li class="sidebar-item bg-sidebar" style="background-color: #2F4F4F;">
 							<a class="sidebar-link bg-sidebar" style="background-color: #2F4F4F;" href="perhitungan.php">
-	              				<i class="align-middle" data-feather="book"></i> <span class="align-middle">Master Perhitungan</span>
+	              				<i class="align-middle" data-feather="book"></i> <span class="align-middle">Master Penghitungan</span>
 	            			</a>
 						</li> 
 					<?php } ?>

@@ -75,7 +75,7 @@
                   </table> <br>
                   <table>
                     <tr>
-                      <td colspan="3"><span class="badge bg-primary">Data Perhitungan</span></td>
+                      <td colspan="3"><span class="badge bg-primary">Data Penghitungan</span></td>
                     </tr>
                     <tr>
                       <td> Usia Kehamilan</td>
