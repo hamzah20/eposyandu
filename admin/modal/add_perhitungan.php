@@ -76,37 +76,20 @@
         </div>
         <div class="mb-3">
           <label class="form-label">Rumus : </label>
-          
-            <?php 
-              $sql="SELECT * FROM rumus";
-              $r=mysqli_query($conn,$sql);
-              while($rs=mysqli_fetch_array($r)){
-                ?>
-               <!--  <label class="form-check">
-                  <input class="form-check-input" type="radio" value="<?php echo $rs['rec_id']?>" name="r_rumus" checked>
-                  <span class="form-check-label">
-                    <?php echo $rs['nama_rumus']?>
-                  </span>
-                </label> -->
-                 <input class=" form-check-input" type="radio" value="<?php echo $rs['rec_id']?>" name="r_rumus" checked>
-                  <span class="form-check-label">
-                    <?php echo $rs['nama_rumus']?>
-                  </span>
-                <?php
-              }
+          <br>
+          <?php 
+            $sql="SELECT * FROM rumus";
+            $r=mysqli_query($conn,$sql);
+            while($rs=mysqli_fetch_array($r)){
+              ?> 
+                <input class=" form-check-input" type="radio" value="<?php echo $rs['rec_id']?>" name="r_rumus" checked>
+                <span class="form-check-label">
+                  <?php echo $rs['nama_rumus']?>
+                </span> <br>
+              <?php
+            }
             ?>
-        </div>
-
-     <!--    <div class="mb-3">
-          <label class="form-label">Keluhan</label>
-          <input type="text" name="txt_keluhan" class="form-control" placeholder="Keluhan" >
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Catatan</label>
-          <textarea class="form-control" name="txt_catatan"></textarea>
-        </div>
-        
- -->
+        </div> 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 

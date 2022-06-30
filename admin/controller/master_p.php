@@ -448,8 +448,8 @@
             $sql_ibu="SELECT tanggal_lahir_ibu_hamil from ibu_hamil where id_ibu_hamil='".$ibu_hamil."'";
             $r_ibu=mysqli_query($conn,$sql_ibu);
             $rs_ibu=mysqli_fetch_array($r_ibu);
-             $rs_ibu['tanggal_lahir_ibu_hamil'];
-           $usia_ibu_hamil= hitung_umur($rs_ibu['tanggal_lahir_ibu_hamil']);
+            $rs_ibu['tanggal_lahir_ibu_hamil'];
+            $usia_ibu_hamil= hitung_umur($rs_ibu['tanggal_lahir_ibu_hamil']);
 
 
             if($r_rumus==1){
@@ -478,12 +478,38 @@
             }else{
                 $run_no = str_pad(strval(intval(1)), 5, "0", STR_PAD_LEFT);
             }
-              $doc_no="L".$year.$run_no;
+            
+            $doc_no="L".$year.$run_no;
 
-           
-            //echo $usia_ibu_hamil;
-              $sql="INSERT INTO laporan ( id_laporan, id_kader_posyandu, id_ibu_hamil, tanggal_laporan, berat_badan, tinggi_badan, usia_ibu_hamil, bee, tee, keluhan, catatan, kehamilan) VALUES ('".$doc_no."','".$_SESSION['user_id']."','".$ibu_hamil."','".$tanggal."','".$bb."','".$tb."','".$usia_ibu_hamil."','".$bee."','".$tee."','".$keluhan."','".$catatan."','1')";
-             $r=mysqli_query($conn,$sql);
+            // Perhitungan protein, karbohidrat, dan lemak
+            // Protein
+            if($r_rumus==1){
+                $point_protein = 1;
+            } elseif($r_rumus == 2){
+                $point_protein = 10; 
+            } elseif($_rumus == 3){
+                $point_protein = 30;
+            }
+
+            $protein = ((15/100)*$tee)/4+$point_protein;
+
+            // Karbohidrat
+            if($r_rumus==1){
+                $point_karbohidrat = 25;
+            } else{
+                $point_karbohidrat = 40;
+            }
+
+            $karbohidrat = ((60/100)*$tee)/4+$point_karbohidrat;
+
+            // Lemak 
+            $lemak = ((25/100)*$tee)/9+2.3;
+            
+            $sql="INSERT INTO laporan ( id_laporan, id_kader_posyandu, id_ibu_hamil, tanggal_laporan, berat_badan, tinggi_badan, usia_ibu_hamil, bee, tee, protein, karbohidrat, 
+            lemak, keluhan, catatan, kehamilan) 
+            VALUES ('".$doc_no."','".$_SESSION['user_id']."','".$ibu_hamil."','".$tanggal."','".$bb."','".$tb."','".$usia_ibu_hamil."','".$bee."','".$tee."',
+            '".$protein."','".$karbohidrat."','".$lemak."','".$keluhan."','".$catatan."','1')";
+            $r=mysqli_query($conn,$sql);
              header('location:../perhitungan.php');
 
 
@@ -496,15 +522,14 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Laporan</th>
-                                    <th>Tanggal Laporan</th>
-                                    <th>ID Pasien</th>
+                                    <th>Tanggal Laporan</th> 
                                     <th>Nama Pasien</th>
-                                    <th style="text-align: center;">Tinggi <br>Badan</th> 
-                                    <th style="text-align: center;">Berat <br>Badan</th> 
+                                    <th style="text-align: center;">TB/BB</th>  
                                     <th style="text-align: center;">Usia <br>kehamilan</th> 
-                                    <th style="text-align: center;">BEE</th> 
-                                    <th style="text-align: center;">TEE</th> 
-                                    <!-- <th style="text-align: center;">Aksi</th>  -->
+                                    <th style="text-align: center;">BEE/TEE</th>  
+                                    <th style="text-align: center;">Karbohidrat</th>
+                                    <th style="text-align: center;">Protein</th>
+                                    <th style="text-align: center;">Lemak</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -517,19 +542,14 @@
                                         <tr  style="cursor: pointer;" onclick="detail_keluhan('<?php echo $rs['rec_id']?>')">
                                             <td><?php echo $i;?></td>
                                             <td><?php echo $rs['id_laporan'];?></td>
-                                            <td><?php echo $rs['tanggal_laporan'];?></td>
-                                            <td><?php echo $rs['id_ibu_hamil'];?></td>
+                                            <td><?php echo $rs['tanggal_laporan'];?></td> 
                                             <td><?php echo $rs['nama_ibu_hamil'];?></td>
-                                            <td style="text-align: center;"><?php echo $rs['tinggi_badan'];?></td>
-                                            <td style="text-align: center;"><?php echo $rs['berat_badan'];?></td>
+                                            <td style="text-align: center;"><?php echo $rs['tinggi_badan'];?>/<?php echo $rs['berat_badan'];?></td> 
                                             <td style="text-align: center;"><?php echo $rs['usia_kehamilan'];?></td>
-                                            <td style="text-align: center;"><?php echo $rs['bee'];?></td>
-                                            <td style="text-align: center;"><?php echo $rs['tee'];?></td>
-                                            <!-- <td style="text-align: center;">
-                                                 <button class="btn btn-sm btn-danger" title="Hitung" href="#" onclick="delete_laporan('<?php echo $rs['rec_id']?>')">Delete</button>  
-                                                <button class="btn btn-sm btn-danger" title="Hitung" href="#" onclick="detail_keluhan('<?php echo $rs['rec_id']?>')"></button>
-                                            </td> -->
-                                            
+                                            <td style="text-align: center;"><?php echo $rs['bee'];?>/<?php echo $rs['tee'];?></td>  
+                                            <td style="text-align: center;"><?php echo number_format($rs['karbohidrat'],2);?></td>
+                                            <td style="text-align: center;"><?php echo number_format($rs['protein'],2);?></td>
+                                            <td style="text-align: center;"><?php echo number_format($rs['lemak'],2);?></td>
                                         </tr>
                                         <tr style="display: none;" id="detail_<?php echo $rs['rec_id']?>">
                                             <td colspan="5">
@@ -656,6 +676,9 @@
                     <th>USIA</th> 
                     <th>BEE</th> 
                     <th>TEE</th> 
+                    <th>Karbohidrat</th>
+                    <th>Protein</th>
+                    <th>Lemak</th>
                     <th>Tanggal Laporan</th> 
                     <th>Bidan</th> 
                     <th>Catatan</th> 
@@ -678,20 +701,16 @@
                 ?>
                         <tr style="border:1px solid #ddd;">
                             <td><?php echo $i;?></td>
-                                
                             <td><?php echo $rs['id_ibu_hamil']?></td>
-                        
                             <td><?php echo $rs['nama_ibu_hamil']?></td>
-                        
                             <td><?php echo $rs['berat_badan']?></td>
-                        
                             <td><?php echo $rs['tinggi_badan']?></td>
-                        
                             <td><?php echo $rs['usia_ibu_hamil']?></td>
-                        
                             <td><?php echo $rs['bee']?></td>
-                        
                             <td><?php echo $rs['tee']?></td>
+                            <td><?php echo number_format($rs['karbohidrat'],2)?></td>
+                            <td><?php echo number_format($rs['protein'],2)?></td>
+                            <td><?php echo number_format($rs['lemak'],2)?></td>
                             <td><?php echo $rs['tanggal_laporan']?></td>
                             <td><?php echo $rs['nama_bidan']?></td> 
                             <td><?php echo str_replace("</p>","",str_replace("<p>","",$rs['catatan']));?></td>    
