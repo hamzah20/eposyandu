@@ -505,9 +505,9 @@
             // Lemak 
             $lemak = ((25/100)*$tee)/9+2.3;
             
-            $sql="INSERT INTO laporan ( id_laporan, id_kader_posyandu, id_ibu_hamil, tanggal_laporan, berat_badan, tinggi_badan, usia_ibu_hamil, bee, tee, protein, karbohidrat, 
+            $sql="INSERT INTO laporan ( id_laporan, id_kader_posyandu, id_ibu_hamil, tanggal_laporan, berat_badan, tinggi_badan, usia_ibu_hamil, bee, usia_kehamilan, tee, protein, karbohidrat, 
             lemak, keluhan, catatan, kehamilan) 
-            VALUES ('".$doc_no."','".$_SESSION['user_id']."','".$ibu_hamil."','".$tanggal."','".$bb."','".$tb."','".$usia_ibu_hamil."','".$bee."','".$tee."',
+            VALUES ('".$doc_no."','".$_SESSION['user_id']."','".$ibu_hamil."','".$tanggal."','".$bb."','".$tb."','".$usia_ibu_hamil."','".$bee."','".$usia."','".$tee."',
             '".$protein."','".$karbohidrat."','".$lemak."','".$keluhan."','".$catatan."','1')";
             $r=mysqli_query($conn,$sql);
              header('location:../perhitungan.php');

@@ -69,7 +69,10 @@
                         <th>No</th>
                         <th>Tanggal Laporan</th>  
                         <th>Nama</th>  
-                        <th>TEE</th>   
+                        <th>TEE</th>
+                        <th>Karbohidrat</th>
+                        <th>Protein</th>
+                        <th>Lemak</th>   
                         <th>Keluhan</th>   
                         <th>Catatan</th>   
                       </tr>
@@ -92,6 +95,9 @@
                             <td><?php echo $rs['tanggal_laporan']?></td>  
                             <td><?php echo $rs['nama_ibu_hamil']?></td> 
                             <td><?php echo $rs['tee']?></td>
+                            <td><?php echo number_format($rs['karbohidrat'],2)?></td>
+											      <td><?php echo number_format($rs['protein'],2)?></td>
+											      <td><?php echo number_format($rs['lemak'],2)?></td>
                             <td><?php echo $rs['keluhan']?></td>
                             <td><?php echo $rs['catatan']?></td>
                           </tr>

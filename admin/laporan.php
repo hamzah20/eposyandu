@@ -77,7 +77,7 @@
 											<td><?php echo $rs['id_ibu_hamil']?></td>
 											<td><?php echo $rs['nama_ibu_hamil']?></td> 
 											<td><?php echo $rs['tinggi_badan']?>/<?php echo $rs['berat_badan']?></td>
-											<td><?php echo $rs['usia_ibu_hamil']?></td>
+											<td><?php echo $rs['usia_kehamilan']?></td>
 											<td><?php echo $rs['bee']?></td>
 											<td><?php echo $rs['tee']?></td>
 											<td><?php echo number_format($rs['karbohidrat'],2)?></td>

@@ -52,10 +52,10 @@
         </div>
         
         
-       <!--  <div class="mb-3">
+        <div class="mb-3">
           <label class="form-label">Usia Kehamilan</label>
           <input type="number" name="txt_usia" id="txt_usia" class="form-control" placeholder="Usia Kehamilan" value="0">
-        </div> -->
+        </div>
         <!-- <div class="mb-3">
           <label class="form-label">BMR</label>
           <input type="number" name="txt_bmr" id="txt_bmr" class="form-control" placeholder="Bmr" readonly="">
